@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+    <link rel="icon" type="image/png" href="/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transcriber AI</title>
-  <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
-  <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+  <script type="module" crossorigin src="/assets/main-DPgupwH3.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DjX2tIfn.css">
 </head>
 
 <body class="m-0 flex flex-col min-w-80 min-h-screen">
     <header class="flex sm:hidden justify-between p-4">
-        <a class="hover:bg-transparent" href="/portal/">
+        <a class="hover:bg-transparent" href="/">
           <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
             style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -38,11 +38,11 @@
         </a>
         <button id="toggle-nav" class="border px-4">&#9776;</button>
         <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
-          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/transcript-overview.html">Transcript
             Overview</a>
-          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
-          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
-          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/user-dashboard.html">Dashboard</a>
+          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/editor.html">Editor</a>
+          <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/style-guide.html">Style Guide</a>
           <div class="flex justify-between items-center p-4">
             <p>Dark Mode</p>
             <div class="darkmode-toggle toggle-switch">
@@ -57,8 +57,8 @@
       </header>
       <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
         <div id="nav" class="flex justify-center items-center flex-1 gap-4">
-            <a class="text-black dark:text-white" href="/portal/user-dashboard.html">Dashboard</a>
-            <a href="/portal/" class="hover:bg-transparent">
+            <a class="text-black dark:text-white" href="/user-dashboard.html">Dashboard</a>
+            <a href="/" class="hover:bg-transparent">
                 <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
                     style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -92,8 +92,8 @@
                     </g>
                 </svg>
             </a>
-            <a class="text-black dark:text-white" href="/portal/editor.html">Editor</a>
-            <a class="text-black dark:text-white" href="/portal/style-guide.html">Style Guide</a>
+            <a class="text-black dark:text-white" href="/editor.html">Editor</a>
+            <a class="text-black dark:text-white" href="/style-guide.html">Style Guide</a>
         </div>
         <div class="flex place-items-center gap-4">
             <div class="darkmode-toggle toggle-switch">
@@ -105,6 +105,12 @@
             <button class="btn">LOGIN</button>
         </div>
     </header>
+    <div id="beta-warning" class="hidden fixed top-0 left-0 right-0 items-center p-1">
+        <div class="border border-orange bg-white text-black dark:bg-black dark:text-white pl-4">
+          <span class="font-bold">Warning:</span> Product in Beta. Updates will occur frequently.
+          <button type="button" id="close-warning" class="px-2"> &#10005; </button>
+        </div>
+      </div>
     <div id="main-content" class="max-w-screen-xl w-full mx-auto pt-8 px-4 xl:px-0">
         <h1 class="font-serif font-bold text-4xl mt-4 text-center md:text-left">City Council Meeting - Oct. 12 2024</h1>
         <div class="flex flex-col md:flex-row divide-x divide-gray dark:text-gray mb-8">
@@ -173,7 +179,7 @@
                     <li class="py-4 border-b border-gray-dark"><span class="text-green-dark dark:text-green">></span> Priority support</li>
                 </ul>
                 <button class="float-right mt-4 text-green-dark dark:text-green border-green-dark dark:border-green border border-2 py-2 px-4">Join</button> -->
-                <embed type="application/pdf" src="/portal/sample.pdf" width="100%" height="1100px" />
+                <embed type="application/pdf" src="/sample.pdf" width="100%" height="1100px" />
             </div>
         </div>
     </div> <!--  end of main content -->

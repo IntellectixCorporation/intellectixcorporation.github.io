@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark hidden">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+  <link rel="icon" type="image/png" href="/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transcriber AI</title>
-  <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
-  <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+  <script type="module" crossorigin src="/assets/main-DPgupwH3.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DjX2tIfn.css">
 </head>
 
 <body class="m-0 flex flex-col min-w-80 min-h-screen">
   <header class="flex sm:hidden justify-between p-4">
-    <a class="hover:bg-transparent" href="/portal/">
+    <a class="hover:bg-transparent" href="/">
       <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
         style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -38,11 +38,11 @@
     </a>
     <button id="toggle-nav" class="border px-4">&#9776;</button>
     <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
-      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/transcript-overview.html">Transcript
         Overview</a>
-      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
-      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
-      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/user-dashboard.html">Dashboard</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/editor.html">Editor</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/style-guide.html">Style Guide</a>
       <div class="flex justify-between items-center p-4">
         <p>Dark Mode</p>
         <div class="darkmode-toggle toggle-switch">
@@ -57,10 +57,10 @@
   </header>
   <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
     <div id="nav" class="flex flex-col sm:flex-row justify-center items-center flex-1 gap-4">
-      <a class="text-black dark:text-white" href="/portal/transcript-overview.html">Transcript
+      <a class="text-black dark:text-white" href="/transcript-overview.html">Transcript
         Overview</a>
-      <a class="text-black dark:text-white" href="/portal/user-dashboard.html">Dashboard</a>
-      <a class="hover:bg-transparent" href="/portal/">
+      <a class="text-black dark:text-white" href="/user-dashboard.html">Dashboard</a>
+      <a class="hover:bg-transparent" href="/">
         <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
           style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -84,7 +84,7 @@
           </g>
         </svg>
       </a>
-      <a class="text-black dark:text-white" href="/portal/style-guide.html">Style Guide</a>
+      <a class="text-black dark:text-white" href="/style-guide.html">Style Guide</a>
     </div>
     <div class="flex flex-col sm:flex-row place-items-center gap-4">
       <div class="darkmode-toggle toggle-switch">
@@ -96,8 +96,17 @@
       <button class="btn">LOGIN</button>
     </div>
   </header>
-  <div class="flex-1 max-w-screen-xl w-full flex flex-col mx-auto pt-8 px-4 xl:px-0">
+
+  <div id="beta-warning" class="hidden fixed top-0 left-0 right-0 items-center p-1">
+    <div class="border border-orange bg-white text-black dark:bg-black dark:text-white pl-4">
+      <span class="font-bold">Warning:</span> Product in Beta. Updates will occur frequently.
+      <button type="button" id="close-warning" class="px-2"> &#10005; </button>
+    </div>
+  </div>
+  
+  <div class="flex-1 max-w-screen-xl w-full flex flex-col mx-auto pt-8 p-4 xl:px-0">
     <h1>Editor</h1>
+    <div class="dropdown-overlay hidden"></div>
     <div id="player--main" class="flex border border-b-0">
       <div class="grid">
         <div class="flex flex-col justify-center items-center p-4 border-b">
@@ -114,7 +123,7 @@
              width="24" 
              height="24" 
              viewBox="0 0 24 24" 
-             class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+             class="fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray">
               <path d="M3 22v-20l18 10-18 10z"/>
             </svg>
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +131,7 @@
              width="24" 
              height="24" 
              viewBox="0 0 24 24"
-             class="hidden fill-black dark:fill-white group-hover:fill-black group-hover:fill-black dark:group-disabled:fill-gray">
+             class="hidden fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black dark:group-disabled:fill-gray">
                 <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
             </svg>
           </button>
@@ -134,7 +143,7 @@
             width="24"
             height="24" 
             viewBox="0 0 24 24"
-            class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+            class="fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray">
               <path d="M12 12l-12 8v-16l12 8zm0-8v16l12-8-12-8z"/>
             </svg>
           </button>
@@ -160,7 +169,7 @@
             width="24" 
             height="24" 
             viewBox="0 0 24 24"
-            class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+            class="fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray">
               <path d="M12 12l-12 8v-16l12 8zm0-8v16l12-8-12-8z"/>
             </svg>
           </button>
@@ -200,8 +209,8 @@
     </div>
 
     <!-- Individual Segment -->
-    <div class="segment border flex my-8">
-      <div class="segment--controls flex flex-col relative w-56 border-r mb-[-1px]">
+    <div class="segment border border-b-0 box-shadow-border-b flex my-8" start-time="34" end-time="48">
+      <div class="segment--controls flex flex-col relative max-w-80 border-r">
         <!--  speaker -->
         <button role="button" class="segment--speaker-select flex justify-between items-center p-2 border-b group">
           <span class="segment--speaker-assigned">Speaker Unassigned...</span>
@@ -210,26 +219,26 @@
             d="m3.719 15.434 1.952-1.992 6.332 6.573 6.326-6.573 1.952 1.992L12.003 24l-8.284-8.566ZM3.719 8.566l1.952 1.992 6.332-6.573 6.326 6.573 1.952-1.992L12.003 0 3.719 8.566Z"/>
           </svg>
         </button>
-        <div class="segment--speaker hidden border flex flex-col max-w-80 absolute bg-white dark:bg-black">
-          <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
-            <input type="text" name="filter-speakers" class="flex-1 border-l px-4 py-2" placeholder="Filter Speakers...">
-            <button
-              class="px-4 py-2 group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
-                <path 
-                 class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
-                 d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
-              </svg>
-            </button>
-          </div>
-          <ul class="segment--speaker-dropdown overflow-auto">
-            <!-- filled by js -->
-          </ul>
-          <div class="segment--speaker-new flex border-t">
-            <input type="text" name="new-speaker" class="flex-1 border-l px-4 py-2" placeholder="New Speaker...">
-          </div>
-          <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
-          <button class="segment--speaker-close border-t py-2 px-4">Close</button>
+        <div class="segment--speaker z-30 hidden border flex flex-col bg-white dark:bg-black">
+            <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
+              <input type="text" name="filter-speakers" class="flex-1 px-4 py-2" placeholder="Filter Speakers...">
+              <button
+                class="px-4 py-2 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                  <path 
+                  class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+                  d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
+                </svg>
+              </button>
+            </div>
+            <ul class="segment--speaker-dropdown overflow-auto">
+              <!-- filled by js -->
+            </ul>
+            <div class="segment--speaker-new flex border-t">
+              <input type="text" name="new-speaker" class="flex-1 px-4 py-2" placeholder="New Speaker...">
+            </div>
+            <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
+            <button class="segment--speaker-close border-t py-2 px-4">Close</button>
         </div>
         <!-- Segment's time and play/pause -->
         <div class="flex">
@@ -238,7 +247,7 @@
             <svg
              width="18"
              height="18"
-             class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray ml-2" 
+             class="fill-black dark:fill-white dark:group-hover:fill-black group-hover:fill-white  dark:group-disabled:fill-gray ml-2" 
              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" />
             </svg>
@@ -248,20 +257,19 @@
             disabled
             role="button"
             aria-label="play pause"
-            play-time="34"
             class="segment--play-pause px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
               <svg xmlns="http://www.w3.org/2000/svg"
               width="24" 
               height="24" 
               viewBox="0 0 24 24" 
-              class="fill-black play-svg dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+              class="fill-black play-svg dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray">
                 <path d="M3 22v-20l18 10-18 10z"/>
               </svg>
               <svg xmlns="http://www.w3.org/2000/svg"
               width="24" 
               height="24" 
               viewBox="0 0 24 24"
-              class="hidden pause-svg fill-black dark:fill-white group-hover:fill-black group-hover:fill-black dark:group-disabled:fill-gray">
+              class="hidden pause-svg fill-black dark:fill-white group-hover:fill-white dark:group-hover:black dark:group-disabled:fill-gray">
                   <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
               </svg>
           </button>
@@ -303,97 +311,185 @@
       </div>
     </div>
 
-        <!-- Individual Segment -->
-        <div class="segment border flex my-8">
-          <div class="segment--controls flex flex-col relative w-56 border-r mb-[-1px]">
-            <!--  speaker -->
-            <button role="button" class="segment--speaker-select flex justify-between items-center p-2 border-b group">
-              <span class="segment--speaker-assigned">Speaker Unassigned...</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24">
-                <path class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
-                d="m3.719 15.434 1.952-1.992 6.332 6.573 6.326-6.573 1.952 1.992L12.003 24l-8.284-8.566ZM3.719 8.566l1.952 1.992 6.332-6.573 6.326 6.573 1.952-1.992L12.003 0 3.719 8.566Z"/>
+    <!-- Individual Segment -->
+    <div class="segment border border-b-0 box-shadow-border-b flex my-8" start-time="55" end-time="88">
+      <div class="segment--controls flex flex-col relative w-56 border-r">
+        <!--  speaker -->
+        <button role="button" class="segment--speaker-select flex justify-between items-center p-2 border-b group">
+          <span class="segment--speaker-assigned">Speaker Unassigned...</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24">
+            <path class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+            d="m3.719 15.434 1.952-1.992 6.332 6.573 6.326-6.573 1.952 1.992L12.003 24l-8.284-8.566ZM3.719 8.566l1.952 1.992 6.332-6.573 6.326 6.573 1.952-1.992L12.003 0 3.719 8.566Z"/>
+          </svg>
+        </button>
+        <div class="segment--speaker z-30 hidden border flex flex-col max-w-80 absolute bg-white dark:bg-black">
+          <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
+            <input type="text" name="filter-speakers" class="flex-1 px-4 py-2" placeholder="Filter Speakers...">
+            <button
+              class="px-4 py-2 group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                <path 
+                  class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+                  d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
               </svg>
             </button>
-            <div class="segment--speaker hidden border flex flex-col max-w-80 absolute bg-white dark:bg-black">
-              <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
-                <input type="text" name="filter-speakers" class="flex-1 border-l px-4 py-2" placeholder="Filter Speakers...">
-                <button
-                  class="px-4 py-2 group">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
-                    <path 
-                     class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
-                     d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
-                  </svg>
-                </button>
-              </div>
-              <ul class="segment--speaker-dropdown overflow-auto">
-                <!-- filled by js -->
-              </ul>
-              <div class="segment--speaker-new flex border-t">
-                <input type="text" name="new-speaker" class="flex-1 border-l px-4 py-2" placeholder="New Speaker...">
-              </div>
-              <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
-              <button class="segment--speaker-close border-t py-2 px-4">Close</button>
-            </div>
-            <!-- Segment's time and play/pause -->
-            <div class="flex">
-              <button role="button" aria-label="edit time" class="segment--edit-time-btn text-xl py-2 p-4 flex items-center justify-center flex-1 border-r group">
-                <span>00:00:00</span>
-                <svg
-                 width="18"
-                 height="18"
-                 class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray ml-2" 
-                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" />
-                </svg>
-              </button>
-             
-              <button 
-                disabled
-                role="button"
-                aria-label="play pause"
-                play-time="55"
-                class="segment--play-pause px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24" 
-                  class="fill-black play-svg dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
-                    <path d="M3 22v-20l18 10-18 10z"/>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24"
-                  class="hidden pause-svg fill-black dark:fill-white group-hover:fill-black group-hover:fill-black dark:group-disabled:fill-gray">
-                      <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
-                  </svg>
-              </button>
-            </div>
-            <div class="segment--edit-time hidden border-t">
-              <div class="flex justify-center items-center px-4 pt-2">
-                <span class="text-sm text-right w-12">Start:</span> <input type="text" name="start-time" maxlength="8" class="w-24 px-2" value="00:00:00">
-              </div>
-              <div class="flex justify-center items-center px-4 pb-2">
-                <span class="text-sm text-right w-12">End:</span> <input type="text" name="end-time" maxlength="8" class="w-24 px-2" value="00:00:00">
-              </div>
-              <div class="flex items-center border-t">
-                <button type="button" class="segment--edit-time-save text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowed border-r">Save</button>
-                <button type="button" class="segment--edit-time-cancel text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowedr">Cancel</button>
-              </div>
-            </div>
-            <!-- Segment's Merge Buttons -->
-            <div class="flex border-t border-b">
-              <button disabled class="merge-up flex-1 text-sm px-4 py-2 disabled:text-gray disabled:cursor-not-allowed border-r">Merge Up</button>
-              <button disabled class="merge-down flex-1 text-sm whitespace-nowrap px-4 py-2 disabled:text-gray disabled:cursor-not-allowed">Merge Down</button>
-            </div>
-            
           </div>
-          <div class="segment--text flex-1 py-2 px-4 focus:outline focus:outline-2 focus:outline-blue focus:outline-offset-[-4px]" contenteditable="true">
-            
+          <ul class="segment--speaker-dropdown overflow-auto">
+            <!-- filled by js -->
+          </ul>
+          <div class="segment--speaker-new flex border-t">
+            <input type="text" name="new-speaker" class="flex-1 px-4 py-2" placeholder="New Speaker...">
+          </div>
+          <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
+          <button class="segment--speaker-close border-t py-2 px-4">Close</button>
+        </div>
+        <!-- Segment's time and play/pause -->
+        <div class="flex">
+          <button role="button" aria-label="edit time" class="segment--edit-time-btn text-xl py-2 p-4 flex items-center justify-center flex-1 border-r group">
+            <span>00:00:00</span>
+            <svg
+              width="18"
+              height="18"
+              class="fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray ml-2" 
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" />
+            </svg>
+          </button>
+          
+          <button 
+            disabled
+            role="button"
+            aria-label="play pause"
+            class="segment--play-pause px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+              <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              class="fill-black play-svg dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray">
+                <path d="M3 22v-20l18 10-18 10z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24"
+              class="hidden pause-svg fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black dark:group-disabled:fill-gray">
+                  <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
+              </svg>
+          </button>
+        </div>
+        <div class="segment--edit-time hidden border-t">
+          <div class="flex justify-center items-center px-4 pt-2">
+            <span class="text-sm text-right w-12">Start:</span> <input type="text" name="start-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+          </div>
+          <div class="flex justify-center items-center px-4 pb-2">
+            <span class="text-sm text-right w-12">End:</span> <input type="text" name="end-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+          </div>
+          <div class="flex items-center border-t">
+            <button type="button" class="segment--edit-time-save text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowed border-r">Save</button>
+            <button type="button" class="segment--edit-time-cancel text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowedr">Cancel</button>
           </div>
         </div>
+        <!-- Segment's Merge Buttons -->
+        <div class="flex border-t border-b">
+          <button disabled class="merge-up flex-1 text-sm px-4 py-2 disabled:text-gray disabled:cursor-not-allowed border-r">Merge Up</button>
+          <button disabled class="merge-down flex-1 text-sm whitespace-nowrap px-4 py-2 disabled:text-gray disabled:cursor-not-allowed">Merge Down</button>
+        </div>
+        
+      </div>
+      <div class="segment--text flex-1 py-2 px-4 focus:outline focus:outline-2 focus:outline-blue focus:outline-offset-[-4px]" contenteditable="true">
+        
+      </div>
+    </div>
  
+    <!-- Individual Segment -->
+    <div class="segment border border-b-0 box-shadow-border-b flex my-8" start-time="55" end-time="88">
+      <div class="segment--controls flex flex-col relative max-w-80 border-r">
+        <!--  speaker -->
+        <button role="button" class="segment--speaker-select flex justify-between items-center p-2 border-b group">
+          <span class="segment--speaker-assigned">Speaker Unassigned...</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24">
+            <path class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+            d="m3.719 15.434 1.952-1.992 6.332 6.573 6.326-6.573 1.952 1.992L12.003 24l-8.284-8.566ZM3.719 8.566l1.952 1.992 6.332-6.573 6.326 6.573 1.952-1.992L12.003 0 3.719 8.566Z"/>
+          </svg>
+        </button>
+        <div class="segment--speaker z-30 hidden border flex flex-col  absolute bg-white dark:bg-black">
+          <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
+            <input type="text" name="filter-speakers" class="flex-1 px-4 py-2" placeholder="Filter Speakers...">
+            <button
+              class="px-4 py-2 group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                <path 
+                  class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+                  d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
+              </svg>
+            </button>
+          </div>
+          <ul class="segment--speaker-dropdown overflow-auto">
+            <!-- filled by js -->
+          </ul>
+          <div class="segment--speaker-new flex border-t">
+            <input type="text" name="new-speaker" class="flex-1 px-4 py-2" placeholder="New Speaker...">
+          </div>
+          <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
+          <button class="segment--speaker-close border-t py-2 px-4">Close</button>
+        </div>
+        <!-- Segment's time and play/pause -->
+        <div class="flex">
+          <button role="button" aria-label="edit time" class="segment--edit-time-btn text-xl py-2 p-4 flex items-center justify-center flex-1 border-r group">
+            <span>00:00:00</span>
+            <svg
+              width="18"
+              height="18"
+              class="fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray ml-2" 
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" />
+            </svg>
+          </button>
+          
+          <button 
+            disabled
+            role="button"
+            aria-label="play pause"
+            class="segment--play-pause px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+              <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              class="fill-black play-svg dark:fill-white group-hover:fill-white dark:group-hover:fill-black  dark:group-disabled:fill-gray">
+                <path d="M3 22v-20l18 10-18 10z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24"
+              class="hidden pause-svg fill-black dark:fill-white group-hover:fill-white dark:group-hover:fill-black dark:group-disabled:fill-gray">
+                  <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
+              </svg>
+          </button>
+        </div>
+        <div class="segment--edit-time hidden border-t">
+          <div class="flex justify-center items-center px-4 pt-2">
+            <span class="text-sm text-right w-12">Start:</span> <input type="text" name="start-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+          </div>
+          <div class="flex justify-center items-center px-4 pb-2">
+            <span class="text-sm text-right w-12">End:</span> <input type="text" name="end-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+          </div>
+          <div class="flex items-center border-t">
+            <button type="button" class="segment--edit-time-save text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowed border-r">Save</button>
+            <button type="button" class="segment--edit-time-cancel text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowedr">Cancel</button>
+          </div>
+        </div>
+        <!-- Segment's Merge Buttons -->
+        <div class="flex border-t border-b">
+          <button disabled class="merge-up flex-1 text-sm px-4 py-2 disabled:text-gray disabled:cursor-not-allowed border-r">Merge Up</button>
+          <button disabled class="merge-down flex-1 text-sm whitespace-nowrap px-4 py-2 disabled:text-gray disabled:cursor-not-allowed">Merge Down</button>
+        </div>
+        
+      </div>
+      <div class="segment--text flex-1 py-2 px-4 focus:outline focus:outline-2 focus:outline-blue focus:outline-offset-[-4px]" contenteditable="true">
+        
+      </div>
+    </div>
   </div> <!--  end of main content -->
   <footer
     class="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-gray border-t py-8 px-4">

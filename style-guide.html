@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark hidden">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+    <link rel="icon" type="image/png" href="/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transcriber AI</title>
-    <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
-    <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+    <script type="module" crossorigin src="/assets/main-DPgupwH3.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-DjX2tIfn.css">
   </head>
   <body class="m-0 flex flex-col min-w-80 min-h-screen">
     <header class="flex sm:hidden justify-between p-4">
-      <a class="hover:bg-transparent" href="/portal/">
+      <a class="hover:bg-transparent" href="/">
         <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
           xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
           style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
@@ -36,11 +36,11 @@
       </a>
       <button id="toggle-nav" class="border px-4">&#9776;</button>
       <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
-        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/transcript-overview.html">Transcript
           Overview</a>
-        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
-        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
-        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/user-dashboard.html">Dashboard</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/editor.html">Editor</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/style-guide.html">Style Guide</a>
         <div class="flex justify-between items-center p-4">
           <p>Dark Mode</p>
           <div class="darkmode-toggle toggle-switch">
@@ -55,7 +55,7 @@
     </header>
     <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
       <div id="nav" class="flex justify-center items-center gap-4 flex-1">
-        <a class="text-black dark:text-white " href="/portal/transcript-overview.html">Transcript Overview</a>
+        <a class="text-black dark:text-white " href="/transcript-overview.html">Transcript Overview</a>
         <a href="#" class="text-black dark:text-white hover:bg-transparent">
           <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
             <title>Transcriber Logo</title>
@@ -76,7 +76,7 @@
             </g>
           </svg>
         </a>
-        <a class="text-black dark:text-white" href="/portal/user-dashboard.html">Dashboard</a>
+        <a class="text-black dark:text-white" href="/user-dashboard.html">Dashboard</a>
       </div>
       <div class="flex place-items-center gap-4">
         <div class="darkmode-toggle toggle-switch">
@@ -88,7 +88,28 @@
         <button class="btn">LOGIN</button>
       </div>
     </header>
+    <div id="beta-warning" class="hidden fixed top-0 left-0 right-0 items-center p-1">
+      <div class="border border-orange bg-white text-black dark:bg-black dark:text-white pl-4">
+        <span class="font-bold">Warning:</span> Product in Beta. Updates will occur frequently.
+        <button type="button" id="close-warning" class="px-2"> &#10005; </button>
+      </div>
+    </div>
     <div id="main-content" class="max-w-screen-xl w-full mx-auto pt-8 px-4 xl:px-0">
+      <div class="border-t pt-4">
+        <div class="flex">
+          <span class="font-serif font-bold italic text-3xl">Transcriptions for</span>
+          <ul id="job-list" class="text-2xl ml-2 pt-1">
+            <li class="pl-2 transition-colors duration-700 ease-in-out bg-white text-black">Government.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Healthcare.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Education.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Market Research.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Legal Professionals.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Executives.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Historians.</li>
+            <li class="pl-2 transition-colors duration-700 ease-in-out">Law Enforcement.</li>
+          </ul>
+        </div>
+      </div>
       <h1 class="font-serif font-bold text-4xl mt-4">Style Guide</h1>
       <p class="mb-8">For general guidelines for styling follow <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">TailwindCSS</a> </p>
       <div class="flex gap-4 flex-col md:flex-row">
@@ -115,74 +136,79 @@
       <h4 class="text-gray mt-8 pb-2">Colors</h4>
       <hr/>
       <div class="flex gap-4 flex-col lg:flex-row mt-4 mb-8">
-        <div class="flex-1 flex gap-4 ">
+        <div class="flex gap-4 flex-1">
           <div class="flex-1">
-            <p>black</p>
+            <p class="text-sm whitespace-nowrap">black</p>
             <div class="h-32 md:h-64 bg-black border border-white"></div>
             <p class="py-2">#242422</p>
           </div>
           <div class="flex-1">
-            <p>gray-dark</p>
+            <p class="text-sm whitespace-nowrap">gray-dark</p>
             <div class="h-32 md:h-64 bg-gray-dark"></div>
             <p class="py-2">#444442</p>
           </div>
           <div class="flex-1">
-            <p>gray</p>
+            <p class="text-sm whitespace-nowrap">gray</p>
             <div class="h-32 md:h-64 bg-gray"></div>
             <p class="py-2">#999999</p>
           </div>
           <div class="flex-1">
-            <p>white</p>
+            <p class="text-sm whitespace-nowrap">white</p>
             <div class="h-32 md:h-64 bg-white border border-black dark:border-none"></div>
             <p class="py-2">#F7F7F7</p>
           </div>
-        </div>
-        <div class="flex-1 flex gap-4">
           <div class="flex-1">
-            <p>blue</p>
+            <p class="text-sm whitespace-nowrap">blue</p>
             <div class="h-32 md:h-64 bg-blue"></div>
             <p class="py-2">#A3A8FF</p>
           </div>
           <div class="flex-1">
-            <p>yellow</p>
+            <p class="text-sm whitespace-nowrap">yellow</p>
             <div class="h-32 md:h-64 bg-yellow"></div>
             <p class="py-2">#FFD24B</p>
           </div>
           <div class="flex-1">
-            <p>red</p>
+            <p class="text-sm whitespace-nowrap">red</p>
             <div class="h-32 md:h-64 bg-red"></div>
             <p class="py-2">#FF6262</p>
           </div>
           <div class="flex-1">
-            <p>green</p>
+            <p class="text-sm whitespace-nowrap">orange</p>
+            <div class="h-32 md:h-64 bg-orange"></div>
+            <p class="py-2">#F76D00</p>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm whitespace-nowrap">green</p>
             <div class="h-32 md:h-64 bg-green"></div>
             <p class="py-2">#2ACA34</p>
           </div>
-        </div>
-        <div class="flex-1 flex gap-4">
           <div class="flex-1">
-            <p>blue-dark</p>
+            <p class="text-sm whitespace-nowrap">blue-dark</p>
             <div class="h-32 md:h-64 bg-blue-dark"></div>
             <p class="py-2">#353DB1</p>
           </div>
           <div class="flex-1">
-            <p>gold</p>
+            <p class="text-sm whitespace-nowrap">gold</p>
             <div class="h-32 md:h-64 bg-gold"></div>
             <p class="py-2">#886807</p>
           </div>
           <div class="flex-1">
-            <p>red-dark</p>
+            <p class="text-sm whitespace-nowrap">red-dark</p>
             <div class="h-32 md:h-64 bg-red-dark"></div>
             <p class="py-2">#A42020</p>
           </div>
           <div class="flex-1">
-            <p>green-dark</p>
+            <p class="text-sm whitespace-nowrap">orange-dark</p>
+            <div class="h-32 md:h-64 bg-orange-dark"></div>
+            <p class="py-2">#BC4D27</p>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm whitespace-nowrap">green-dark</p>
             <div class="h-32 md:h-64 bg-green-dark"></div>
             <p class="py-2">#0B6011</p>
           </div>
         </div>
       </div>
-      
       <div class="grid grid-cols-2 gap-4 justify-center items-center mb-8">
         <pre><code class="language-html"><!-- <p class="text-blue-dark dark:text-blue">Text color</p> --></code></pre>
         <p class="text-blue-dark dark:text-blue max-w-prose">
@@ -216,6 +242,448 @@
           recusandae numquam iusto pariatur eum.
         </p>
       </div>
+      <h4 class="text-gray mt-8 pb-2">Modal</h4>
+      <hr/>
+      <p class="my-4">In the element you want to trigger the modal when clicked, add class <span class="text-green-dark dark:text-green">modal-trigger</span>. Then give your trigger an id prefixed with <span class="text-green-dark dark:text-green">modal-</span> and use that same id on the modal element you want to pop up under the attribute <span class="text-red-dark dark:text-red">data-modal-id</span> </p>
+      <div class="grid grid-cols-6 gap-4 justify-center items-center mb-8">
+        <div class="col-span-1 flex justify-center items-center">
+          <button id="modal-intellectix" class="modal-trigger btn mt-4">Modal</button>
+          
+          <div data-modal-id="modal-intellectix" class="modal">
+              <div class="lined-corners p-4 mb-8 zoomIn">
+                <div class="bg-white dark:bg-black p-8 pt-4">
+                    <button class="close -mr-2 px-1 float-right" type="button" aria-label="close"><span aria-hidden="true">✕</span></button>
+                    <small class="uppercase text-red-dark dark:text-red">Intellectix</small>
+                    <h2 class="text-2xl text-black dark:text-white uppercase font-serif font-bold">Transcriber</h2>
+                    <h3 class="mb-4 text-black dark:text-white text-xs">Artificial Intelligence</h3>
+                    <p class="text-black dark:text-white max-w-prose">Intellectix specializes in developing comprehensive AI solutions by integrating cutting-edge state-of-the-art (SOTA) models with advanced fine-tuning techniques. These techniques leverage expertly crafted prompts to streamline and optimize workflow execution.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-span-5">
+          <pre><code class="language-html"><!--<button id="modal-intellectix" class="modal-trigger btn mt-4">Modal</button>
+<div data-modal-id="modal-intellectix" class="modal">
+    <div class="lined-corners zoomIn p-4 mb-8">
+      <div class="bg-black p-8 pt-4">
+          <button class="close -mr-2 px-1 float-right" type="button" aria-label="close"><span aria-hidden="true">✕</span></button>
+          <small class="uppercase text-red-dark dark:text-red">Intellectix</small>
+          <h2 class="text-2xl uppercase font-serif font-bold">Transcriber</h2>
+          <h3 class="mb-4 text-xs">Artificial Intelligence</h3>
+          <p class="max-w-prose">Intellectix specializes in developing comprehensive AI solutions by integrating cutting-edge state-of-the-art (SOTA) models with advanced fine-tuning techniques. These techniques leverage expertly crafted prompts to streamline and optimize workflow execution.</p>
+      </div>
+    </div>
+</div>--></code></pre>
+        </div>
+      </div>
+      <div class="grid grid-cols-6 gap-4 justify-center items-center mb-8">
+        <div class="col-span-1 flex justify-center items-center">
+          <button id="modal-login" class="modal-trigger btn mt-4">Login Modal</button>
+          <div data-modal-id="modal-login" class="modal">
+            <div class="lined-corners p-4 mb-8 zoomIn">
+              <div class="bg-white dark:bg-black p-8">
+                  <button class="close px-1 float-right" type="button" aria-label="close"><span aria-hidden="true">✕</span></button>
+                  <h2 class="text-3xl italic font-serif font-bold mt-2 mb-4">Login</h2>
+                  <div class="my-4">
+                    <label for="email" class="uppercase  text-xs">E-mail</label>
+                    <input type="email" name="email" placeholder="you@example.com" class="border px-2 py-1 block w-80">
+                    <!-- <small class="uppercase text-red-dark dark:text-red">required</small> -->
+                  </div>
+                  <div class="mb-8">
+                    <label for="password" class="uppercase  text-xs">Password</label>
+                    <input type="password" name="password" class="border px-2 py-1 block w-80">
+                    <!-- <small class="uppercase text-red-dark dark:text-red">required</small> -->
+                  </div>
+                  <button type="submit" class="btn uppercase block mx-auto">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-5">
+          <pre><code class="language-html"><!--<button id="modal-login" class="modal-trigger btn mt-4">Login Modal</button>
+<div data-modal-id="modal-login" class="modal">
+  <div class="lined-corners p-4 mb-8 zoomIn">
+    <div class="bg-black p-8">
+        <button class="close px-1 float-right" type="button" aria-label="close"><span aria-hidden="true">✕</span></button>
+        <h2 class="text-3xl italic font-serif font-bold mt-2 mb-4">Login</h2>
+        <div class="my-4">
+          <label for="email" class="uppercase  text-xs">E-mail</label>
+          <input type="email" name="email" placeholder="you@example.com" class="border px-2 py-1 block w-80">
+        </div>
+        <div class="mb-8">
+          <label for="password" class="uppercase  text-xs">Password</label>
+          <input type="password" name="password" class="border px-2 py-1 block w-80">
+        </div>
+        <button type="submit" class="btn uppercase block mx-auto">Login</button>
+    </div>
+  </div>
+</div>--></code></pre>
+        </div>
+     </div>
+      <h4 class="text-gray mt-8 pb-2">Standard Dropdown</h4>
+      <hr/>
+      <div class="grid grid-cols-6 gap-4 justify-center items-center mb-8">
+        <div class="col-span-2 flex justify-center items-center gap-2 my-4">
+          <label for="language">
+            Language
+          </label>
+          <select class="border p-2 transition ease-in-out duration-150" id="language">
+            <option value="auto-detect">Auto Detect</option>
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+          </select>
+        </div>
+        <div class="col-span-4">
+        <pre><code class="language-html"><!--<div class="flex justify-center items-center gap-2">
+  <label for="language">
+    Language
+  </label>
+  <select class="border p-2 transition ease-in-out duration-150" id="language">
+    <option value="auto-detect">Auto Detect</option>
+    <option value="english">English</option>
+    <option value="spanish">Spanish</option>
+  </select>
+</div> --></code></pre>
+        </div>
+      </div>
+      <!-- <h4 class="text-gray mt-8 pb-2">Simple Dropdown</h4>
+      <hr/>
+
+      <select class="my-4 p-2 flex items-center border">
+        <option value="select">Select</option>
+        <option value="🎉">🎉 <span>Party Popper</span></option>
+        <option value="😊">😊 <span>Smiling</span></option>
+        <option value="😂">😂 <span>Tears of Joy</span></option>
+        <option value="😍">😍 <span>Heart Eyes</span></option>
+        <option value="😎">😎 <span>Cool</span></option>
+      </select> -->
+
+      <h4 class="text-gray mt-8 pb-2">Custom Dropdown</h4>
+      <hr/>
+      <div class="flex gap-x-8 justify-center items-center">
+        <div class="w-96">
+          <div class="dropdown my-4 w-32">
+            <button class="dropdown--btn border pl-4 pr-2 py-2 flex justify-between gap-x-4 items-center group">
+              <span class="dropdown--label flex">Select</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black group-hover:fill-white dark:fill-white dark:group-hover:fill-black">
+                <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <div class="dropdown--menu hidden" tabindex="0">
+              <span class="font-serif text-xl font-bold italic">Fruits</span>
+              <ul role="listbox" class="border-t-2 py-2 mb-2 space-y-2">
+                <li role="option" tabindex="0" data-value="option-1" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2 ">
+                  <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                  <span class="ml-2">Option 1</span>
+                  </div>
+                </li>
+                <li role="option" tabindex="0" data-value="option-2" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+                  <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                  <span class="ml-2">Option 2</span>
+                  </div>
+                </li>
+                <li role="option" tabindex="0" data-value="option-3" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+                  <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                  <span class="ml-2">Option 3</span>
+                  </div>
+                </li>
+              </ul>
+              <span class="font-serif text-xl font-bold italic">Candy</span>
+              <ul role="listbox" class="border-t-2 py-2 space-y-2">
+                <li role="option" tabindex="0" data-value="option-4" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+                  <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                  <span class="ml-2">Option 1</span>
+                  </div>
+                </li>
+                <li role="option" tabindex="0" data-value="option-5" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+                  <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                  <span class="ml-2">Option 2</span>
+                  </div>
+                </li>
+                <li role="option" tabindex="0" data-value="option-6" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+                  <div class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                  <span class="ml-2">Option 3</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="max-w-full h-96 overflow-y-auto">
+          <pre><code class="language-html"><!--<div class="dropdown my-4">
+  <button class="dropdown--btn border pl-4 pr-2 py-2 flex justify-between gap-x-4 items-center group">
+    <span class="dropdown--label flex">Select</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black group-hover:fill-white dark:fill-white dark:group-hover:fill-black">
+      <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+  <div class="dropdown--menu hidden" tabindex="0">
+    <span class="font-serif text-xl font-bold italic">Fruits</span>
+    <ul role="listbox" class="border-t-2 py-2 mb-2 space-y-2">
+      <li role="option" tabindex="0" data-value="option-1" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2 ">
+        <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+        <span class="ml-2">Option 1</span>
+        </div>
+      </li>
+      <li role="option" tabindex="0" data-value="option-2" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+        <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+        <span class="ml-2">Option 2</span>
+        </div>
+      </li>
+      <li role="option" tabindex="0" data-value="option-3" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+        <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+        <span class="ml-2">Option 3</span>
+        </div>
+      </li>
+    </ul>
+    <span class="font-serif text-xl font-bold italic">Candy</span>
+    <ul role="listbox" class="border-t-2 py-2 space-y-2">
+      <li role="option" tabindex="0" data-value="option-4" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+        <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+        <span class="ml-2">Option 1</span>
+        </div>
+      </li>
+      <li role="option" tabindex="0" data-value="option-5" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+        <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+        <span class="ml-2">Option 2</span>
+        </div>
+      </li>
+      <li role="option" tabindex="0" data-value="option-6" class="group hover:cursor-pointer hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black focus:outline focus:outline-blue focus:outline-offset-2 focus:outline-2">
+        <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true" data-slot="icon" class="size-4 fill-black dark:fill-white group-hover:fill-white group-hover:dark:fill-black"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+        <span class="ml-2">Option 3</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>--></code></pre>
+        </div>
+      </div>
+      
+      
+
+      <h4 class="text-gray mt-8 pb-2">List</h4>
+      <hr/>
+      <div class="flex gap-x-4">
+        <ul class="border px-8 py-4 my-8 w-96">
+          <li class="text-xl border-b border-gray py-4">List 1</li>
+          <li class="text-xl border-b border-gray py-4">List 2</li>
+          <li class="text-xl border-b border-gray py-4">List 3</li>
+          <li class="text-xl py-4">List 4</li>
+        </ul>
+        <div class="flex-1 flex items-center justify-center">
+          <pre><code class="language-html"><!--<ul class="border px-8 py-4 my-8 w-96">
+  <li class="text-xl border-b border-gray py-4">List 1</li>
+  <li class="text-xl border-b border-gray py-4">List 2</li>
+  <li class="text-xl border-b border-gray py-4">List 3</li>
+  <li class="text-xl py-4">List 4</li>
+</ul>--></code></pre>
+        </div>
+        
+      </div>
+ 
+      <h4 class="text-gray mt-8 pb-2">Vertical Steps</h4>
+      <hr/>
+      <div class="flex flex-col gap-x-4 mt-8">
+        <div class="flex-1 flex px-4">
+          <span class="font-serif bold italic text-4xl text-black dark:text-white mr-4">01</span>
+          <div class="border-l-2 border-black dark:border-white pl-4 mb-8">
+            <h2 class="font-serif font-bold italic text-3xl">Step 1</h2>
+            <p>Register</p>
+          </div>
+        </div>
+        <div class="flex-1 flex px-4">
+          <span class="font-serif bold italic text-4xl text-gray dark:text-gray mr-4">02</span>
+          <div class="border-l-2 border-gray dark:border-gray-dark pl-4 mb-8">
+            <h2 class="text-gray font-serif font-bold italic text-3xl">Step 2</h2>
+            <p class="text-gray">Login</p>
+          </div>
+        </div>
+        <div class="flex-1 flex px-4">
+          <span class="font-serif bold italic text-4xl text-gray dark:text-gray mr-4">03</span>
+          <div class="border-l-2 border-gray dark:border-gray-dark pl-4 mb-8">
+            <h2 class="text-gray font-serif font-bold italic text-3xl">Step 3</h2>
+            <p class="text-gray">Upload</p>
+          </div>
+        </div>
+        <div class="flex-1 flex px-4">
+          <span class="font-serif bold italic text-4xl text-gray dark:text-gray mr-4">04</span>
+          <div class="border-l-2 border-gray dark:border-gray-dark pl-4">
+            <h2 class="text-gray font-serif font-bold italic text-3xl">Step 4</h2>
+            <p class="text-gray">Transcirbe</p>
+          </div>
+        </div>
+      </div>
+      <pre><code class="language-html"><!--<div class="flex flex-col gap-x-4 mt-8">
+  <div class="flex-1 flex px-4">
+    <span class="font-serif bold italic text-4xl text-black dark:text-white mr-4">01</span>
+    <div class="border-l-2 border-black dark:border-white pl-4 mb-8">
+      <h2 class="font-serif font-bold italic text-3xl">Step 1</h2>
+      <p>Register</p>
+    </div>
+  </div>
+  <div class="flex-1 flex px-4">
+    <span class="font-serif bold italic text-4xl text-gray dark:text-gray mr-4">02</span>
+    <div class="border-l-2 border-gray dark:border-gray-dark pl-4 mb-8">
+      <h2 class="text-gray font-serif font-bold italic text-3xl">Step 2</h2>
+      <p class="text-gray">Login</p>
+    </div>
+  </div>
+  <div class="flex-1 flex px-4">
+    <span class="font-serif bold italic text-4xl text-gray dark:text-gray mr-4">03</span>
+    <div class="border-l-2 border-gray dark:border-gray-dark pl-4 mb-8">
+      <h2 class="text-gray font-serif font-bold italic text-3xl">Step 3</h2>
+      <p class="text-gray">Upload</p>
+    </div>
+  </div>
+  <div class="flex-1 flex px-4">
+    <span class="font-serif bold italic text-4xl text-gray dark:text-gray mr-4">04</span>
+    <div class="border-l-2 border-gray dark:border-gray-dark pl-4">
+      <h2 class="text-gray font-serif font-bold italic text-3xl">Step 4</h2>
+      <p class="text-gray">Transcirbe</p>
+    </div>
+  </div>
+</div>--></code></pre>
+      <h4 class="text-gray mt-8 pb-2">Horizontal Steps</h4>
+      <hr/>
+      <div class="border px-4 py-8 flex gap-x-4 mt-8">
+        <div class="flex-1 px-4">
+          <div class="border-t-4 mb-2"></div>
+          <h2 class="font-serif font-bold italic text-3xl">Step 1</h2>
+          <p>Register</p>
+        </div>
+        <div class="flex-1 px-4">
+          <div class="border-t-4 border-gray dark:border-gray-dark mb-2"></div>
+          <h2 class="text-gray font-serif font-bold italic text-3xl">Step 2</h2>
+          <p class="text-gray">Login</p>
+        </div>
+        <div class="flex-1 px-4">
+          <div class="border-t-4 border-gray dark:border-gray-dark mb-2"></div>
+          <h2 class="text-gray font-serif font-bold italic text-3xl">Step 3</h2>
+          <p class="text-gray">Upload</p>
+        </div>
+        <div class="flex-1 px-4">
+          <div class="border-t-4 border-gray dark:border-gray-dark mb-2"></div>
+          <h2 class="text-gray font-serif font-bold italic text-3xl">Step 4</h2>
+          <p class="text-gray">Transcirbe</p>
+        </div>
+      </div>
+
+      <pre><code class="language-html"><!--<div class="border px-4 py-8 flex gap-x-4 mt-8">
+  <div class="flex-1 px-4">
+    <div class="border-t-4 mb-2"></div>
+    <h2 class="font-serif font-bold italic text-3xl">Step 1</h2>
+    <p>Register</p>
+  </div>
+  <div class="flex-1 px-4">
+    <div class="border-t-4 border-gray dark:border-gray-dark mb-2"></div>
+    <h2 class="text-gray font-serif font-bold italic text-3xl">Step 2</h2>
+    <p class="text-gray">Login</p>
+  </div>
+  <div class="flex-1 px-4">
+    <div class="border-t-4 border-gray dark:border-gray-dark mb-2"></div>
+    <h2 class="text-gray font-serif font-bold italic text-3xl">Step 3</h2>
+    <p class="text-gray">Upload</p>
+  </div>
+  <div class="flex-1 px-4">
+    <div class="border-t-4 border-gray dark:border-gray-dark mb-2"></div>
+    <h2 class="text-gray font-serif font-bold italic text-3xl">Step 4</h2>
+    <p class="text-gray">Transcirbe</p>
+  </div>
+</div> --></code></pre>
+
+      <h4 class="text-gray mt-8 pb-2">Cards</h4>
+      <hr/>
+      <div class="my-4 grid grid-cols-4 gap-x-4 gap-y-4">
+        <div class="col-span-1 border-2 border-gray dark:border-gray-dark">
+          <h2 class="bg-gray dark:bg-gray-dark px-2">Hello</h2>
+          <p class="p-2">This is a card. The quick brown fox jumped over the lazy dog</p>
+        </div>
+        <div class="col-span-1 border p-4">
+          <h2 class="bg-gray dark:bg-gray-dark px-2">Hello</h2>
+          <p class="p-2">This is a card. The quick brown fox jumped over the lazy dog</p>
+        </div>
+        <div class="col-span-1 border border-gray-dark p-4">
+          <h2 class="font-serif font-bold italic text-2xl px-2">Hello</h2>
+          <p class="p-2">This is a card. The quick brown fox jumped over the lazy dog</p>
+        </div>
+        <div class="col-span-1 corners p-4">
+          <div class="z-10">
+            <h2 class="font-serif font-bold italic text-2xl px-2">Hello</h2>
+            <p class="p-2">This is a card. The quick brown fox jumped over the lazy dog</p>
+          </div>
+        </div>
+      </div>
+      <h4 class="text-gray mt-8 pb-2">Progress Bar</h4>
+      <hr/>
+      <div class="w-full bg-gray-dark dark:bg-gray my-8">
+        <div class="bg-green dark:bg-green-dark text-xs font-medium text-center p-0.5 leading-none" style="width: 45%"> 45%</div>
+      </div>
+      <pre><code class="language-html"><!--<div class="w-full bg-gray-dark dark:bg-gray">
+  <div class="bg-green dark:bg-green-dark text-xs font-medium text-center p-0.5 leading-none" style="width: 45%"> 45%</div>
+</div> --></code></pre>
+
+      <h4 class="text-gray mt-8 pb-2">Date Picker</h4>
+      <hr/>
+      <div class="flex gap-x-4 mt-4">
+        <div class="flex-1 flex items-center justify-center">
+          <input 
+        type="date" 
+        name="calendar"
+        min="2024-01-01"
+        max="2026-12-31"
+        value="2024-03-24"
+        class="border py-1 px-2"
+        >
+        </div>
+        <pre><code class="language-html"><!--<input type="date" name="calendar" min="2024-01-01" max="2026-12-31" value="2024-03-24" class="border py-1 px-2"> --></code></pre>
+      </div>
+      <h4 class="text-gray mt-8 pb-2">Pill</h4>
+      <hr class="mb-4"/>
+      <div class="pill">Pill</div>
+      <div class="pill--btn">Pill <button role="button" class="pill__close">close</button></div>
+      <h4 class="text-gray mt-8 pb-2">Pagination</h4>
+      <hr/>
+      <div class="flex flex-col lg:flex-row justify-between items-center my-8">
+        <p>Showing 1 to 10 of 97 results</p>
+        <nav class="border border-gray-dark btn-group text-lg">
+          <a href="#" class="btn-group--label border-r border-gray-dark px-2">first</a>
+          <a href="#" class="btn-group--label px-2">1</a>
+          <a href="#" class="btn-group--label px-2 active">2</a>
+          <a href="#" class="btn-group--label px-2">3</a>
+          <a href="#" class="btn-group--label px-2">4</a>
+          <a href="#" class="btn-group--label px-2">...</a>
+          <a href="#" class="btn-group--label px-2">10</a>
+          <a href="#" class="btn-group--label border-l border-gray-dark px-2">next</a>
+          <a href="#" class="btn-group--label border-l border-gray-dark px-2">last</a>
+        </nav>
+      </div>
+      <pre><code class="language-html"><!--<div class="flex flex-col lg:flex-row justify-between items-center mb-8 lg:mb-0">
+  <p>Showing 1 to 10 of 97 results</p>
+  <nav class="border border-gray-dark btn-group text-lg">
+    <a href="#" class="btn-group--label border-r border-gray-dark px-2">first</a>
+    <a href="#" class="btn-group--label px-2">1</a>
+    <a href="#" class="btn-group--label px-2 active">2</a>
+    <a href="#" class="btn-group--label px-2">3</a>
+    <a href="#" class="btn-group--label px-2">4</a>
+    <a href="#" class="btn-group--label px-2">...</a>
+    <a href="#" class="btn-group--label px-2">10</a>
+    <a href="#" class="btn-group--label border-l border-gray-dark px-2">next</a>
+    <a href="#" class="btn-group--label border-l border-gray-dark px-2">last</a>
+  </nav>
+</div>--></code></pre>
       <h4 class="text-gray mt-8 pb-2">Animated Text (with cursor)</h4>
       <hr/>
       <div class="flex flex-col justify-center items-center my-8">
@@ -591,7 +1059,7 @@ setTimeout(() => {
 </div> --></code></pre>
 <h4 class="text-gray mt-16 pb-2">Lists</h4>
 <hr class="mb-4"/>
-<p> use <span class="bg-gray-dark">list-greater</span> and <span class="bg-gray-dark">greater-${color}</span> in HTML classes for caret style lists</p>
+<p> use <span class="bg-gray-dark text-white">list-greater</span> and <span class="bg-gray-dark text-white">greater-${color}</span> in HTML classes for caret style lists</p>
 <div class="grid grid-cols-4 my-8">
   <ul class="list-greater greater-green">
     <li>Jane Doe</li>
