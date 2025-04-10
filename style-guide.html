@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transcriber AI</title>
+    <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
+    <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+  </head>
+  <body class="m-0 flex flex-col min-w-80 min-h-screen">
+    <header class="flex sm:hidden justify-between p-4">
+      <a class="hover:bg-transparent" href="/portal/">
+        <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+          style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <title>Transcriber Logo</title>
+          <g id="Transciber-Logo">
+            <path
+              d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+              class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+            <g id="Wave">
+              <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+              <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+              <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+              <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+              <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+              <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+              <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+              <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+              <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+              <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+            </g>
+          </g>
+        </svg>
+      </a>
+      <button id="toggle-nav" class="border px-4">&#9776;</button>
+      <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+          Overview</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+        <div class="flex justify-between items-center p-4">
+          <p>Dark Mode</p>
+          <div class="darkmode-toggle toggle-switch">
+            <label class="switch-label">
+              <input type="checkbox" class="switch" name="darkmode">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <button class="p-4">LOGIN</button>
+      </div>
+    </header>
+    <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
+      <div id="nav" class="flex justify-center items-center gap-4 flex-1">
+        <a class="text-black dark:text-white " href="/portal/transcript-overview.html">Transcript Overview</a>
+        <a href="#" class="text-black dark:text-white hover:bg-transparent">
+          <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+            <title>Transcriber Logo</title>
+            <g id="Transciber-Logo">
+                <path d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z" class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;"/>
+                <g id="Wave">
+                    <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white"/>
+                    <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white"/>
+                    <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white"/>
+                    <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white"/>
+                    <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white"/>
+                    <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white"/>
+                    <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white"/>
+                    <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white"/>
+                    <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white"/>
+                    <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white"/>
+                </g>
+            </g>
+          </svg>
+        </a>
+        <a class="text-black dark:text-white" href="/portal/user-dashboard.html">Dashboard</a>
+      </div>
+      <div class="flex place-items-center gap-4">
+        <div class="darkmode-toggle toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="switch" name="darkmode">
+            <span class="slider"></span>
+          </label>
+        </div> 
+        <button class="btn">LOGIN</button>
+      </div>
+    </header>
+    <div id="main-content" class="max-w-screen-xl w-full mx-auto pt-8 px-4 xl:px-0">
+      <h1 class="font-serif font-bold text-4xl mt-4">Style Guide</h1>
+      <p class="mb-8">For general guidelines for styling follow <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">TailwindCSS</a> </p>
+      <div class="flex gap-4 flex-col md:flex-row">
+        <div class="flex-1">
+          <h4 class="text-gray pb-2">Heading Typeface</h4>
+          <hr/>
+          <p class="py-4 text-xl font-serif">Junicode</p>
+          <p class="text-xl font-serif">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+          <p class="text-xl font-serif">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+          <p class="text-xl font-serif">1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ & * ( ) - + = ? " ; :</p>
+          <pre><code class="language-html"><!-- <h1 class="font-serif">Junicode</h1> --></code></pre>
+        </div>
+        <div class="flex-1">
+          <h4 class="text-gray pb-2">Body Typeface (default)</h4>
+          <hr/>
+          <p class="py-4 text-xl">JetBrains Mono</p>
+          <p class="text-xl">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+          <p class="text-xl">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+          <p class="text-xl">1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ & * ( ) - + = ? " ; :</p>
+          <pre><code class="language-html"><!-- <span class="font-mono">JetBrains Mono</span> --></code></pre>
+        </div>
+      </div>
+
+      <h4 class="text-gray mt-8 pb-2">Colors</h4>
+      <hr/>
+      <div class="flex gap-4 flex-col lg:flex-row mt-4 mb-8">
+        <div class="flex-1 flex gap-4 ">
+          <div class="flex-1">
+            <p>black</p>
+            <div class="h-32 md:h-64 bg-black border border-white"></div>
+            <p class="py-2">#242422</p>
+          </div>
+          <div class="flex-1">
+            <p>gray-dark</p>
+            <div class="h-32 md:h-64 bg-gray-dark"></div>
+            <p class="py-2">#444442</p>
+          </div>
+          <div class="flex-1">
+            <p>gray</p>
+            <div class="h-32 md:h-64 bg-gray"></div>
+            <p class="py-2">#999999</p>
+          </div>
+          <div class="flex-1">
+            <p>white</p>
+            <div class="h-32 md:h-64 bg-white border border-black dark:border-none"></div>
+            <p class="py-2">#F7F7F7</p>
+          </div>
+        </div>
+        <div class="flex-1 flex gap-4">
+          <div class="flex-1">
+            <p>blue</p>
+            <div class="h-32 md:h-64 bg-blue"></div>
+            <p class="py-2">#A3A8FF</p>
+          </div>
+          <div class="flex-1">
+            <p>yellow</p>
+            <div class="h-32 md:h-64 bg-yellow"></div>
+            <p class="py-2">#FFD24B</p>
+          </div>
+          <div class="flex-1">
+            <p>red</p>
+            <div class="h-32 md:h-64 bg-red"></div>
+            <p class="py-2">#FF6262</p>
+          </div>
+          <div class="flex-1">
+            <p>green</p>
+            <div class="h-32 md:h-64 bg-green"></div>
+            <p class="py-2">#2ACA34</p>
+          </div>
+        </div>
+        <div class="flex-1 flex gap-4">
+          <div class="flex-1">
+            <p>blue-dark</p>
+            <div class="h-32 md:h-64 bg-blue-dark"></div>
+            <p class="py-2">#353DB1</p>
+          </div>
+          <div class="flex-1">
+            <p>gold</p>
+            <div class="h-32 md:h-64 bg-gold"></div>
+            <p class="py-2">#886807</p>
+          </div>
+          <div class="flex-1">
+            <p>red-dark</p>
+            <div class="h-32 md:h-64 bg-red-dark"></div>
+            <p class="py-2">#A42020</p>
+          </div>
+          <div class="flex-1">
+            <p>green-dark</p>
+            <div class="h-32 md:h-64 bg-green-dark"></div>
+            <p class="py-2">#0B6011</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-4 justify-center items-center mb-8">
+        <pre><code class="language-html"><!-- <p class="text-blue-dark dark:text-blue">Text color</p> --></code></pre>
+        <p class="text-blue-dark dark:text-blue max-w-prose">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit qui 
+          distinctio voluptatibus labore optio perferendis aspernatur ut 
+          accusantium nemo id provident libero voluptatum, quaerat, iste 
+          recusandae numquam iusto pariatur eum.
+        </p>
+      
+        <pre><code class="language-html"><!-- <p class="text-red-dark dark:text-red">Text color</p> --></code></pre>
+        <p class="text-red-dark dark:text-red max-w-prose">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit qui 
+          distinctio voluptatibus labore optio perferendis aspernatur ut 
+          accusantium nemo id provident libero voluptatum, quaerat, iste 
+          recusandae numquam iusto pariatur eum.
+        </p>
+      
+        <pre><code class="language-html"><!-- <p class="text-gold dark:text-yellow">Text color</p> --></code></pre>
+        <p class="text-gold dark:text-yellow max-w-prose">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit qui 
+          distinctio voluptatibus labore optio perferendis aspernatur ut 
+          accusantium nemo id provident libero voluptatum, quaerat, iste 
+          recusandae numquam iusto pariatur eum.
+        </p>
+      
+        <pre><code class="language-html"><!-- <p class="text-green-dark dark:text-green">Text color</p> --></code></pre>
+        <p class="text-green-dark dark:text-green max-w-prose">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit qui 
+          distinctio voluptatibus labore optio perferendis aspernatur ut 
+          accusantium nemo id provident libero voluptatum, quaerat, iste 
+          recusandae numquam iusto pariatur eum.
+        </p>
+      </div>
+      <h4 class="text-gray mt-8 pb-2">Animated Text (with cursor)</h4>
+      <hr/>
+      <div class="flex flex-col justify-center items-center my-8">
+        <div class="relative mb-8">
+          <h1 class="terminal-effect terminal-effect--cursor-square font-bold text-3xl">
+            The quick brown fox jumped over the lazy dog.
+          </h1>
+          <span class="terminal-effect--blink text-3xl"></span>
+        </div>
+
+        <pre><code class="language-html"><!--<div class="relative">
+  <h1 class="terminal-effect terminal-effect--cursor-square font-bold text-3xl">
+    The quick brown fox jumped over the lazy dog.
+  </h1>
+  <span class="terminal-effect--blink text-3xl"></span>
+</div> --></code></pre>
+<pre><code class="language-ts">setTimeout(() => {
+  document.querySelectorAll<HTMLElement>('.terminal-effect--blink').forEach(item => {
+    item.style.opacity = '0';
+  })
+}, 2000);
+
+setTimeout(() => {
+  document.querySelectorAll('.terminal-effect').forEach(item => {
+    const animator = new TextAnimator(item);
+      animator.animate();
+  })
+}, 2001);</code></pre>
+      </div>
+
+      <h4 class="text-gray mt-8 pb-2">Animated Text (without cursor)</h4>
+      <hr/>
+      <div class="flex flex-col justify-center items-center my-8">
+        <p class="terminal-effect terminal-effect--cursor-square mb-8">The quick brown fox jumped over the lazy dog.</p>
+
+        <pre><code class="language-html"><!--<p class="terminal-effect terminal-effect--cursor-square">The quick brown fox jumped over the lazy dog.</p>--></code></pre>
+        <pre><code class="language-ts">setTimeout(() => {
+  document.querySelectorAll('.terminal-effect').forEach(item => {
+    const animator = new TextAnimator(item);
+      animator.animate();
+  })
+}, 2001);</code></pre>
+      </div>
+      <h4 class="text-gray mt-8 pb-2">Drag and Drop</h4>
+      <hr/>
+      <div id="drop_zone" class="w-full h-32 md:h-96 outline-dashed outline-black dark:outline-gray my-8 bg-white dark:bg-black">
+        <div class="flex flex-col justify-center items-center h-full">
+          <h4 class="text-3xl text-black dark:text-white mb-4">Drag and Drop</h4>
+          <button id="select-files" class="btn text-sm">Select Audio Files</button>
+        </div>
+      </div>
+
+      <pre><code class="language-html"><!--<div id="drop_zone" class="w-full h-32 md:h-96 outline-dashed outline-black dark:outline-gray my-8 bg-white dark:bg-black">
+  <div class="flex flex-col justify-center items-center h-full">
+    <h4 class="text-3xl text-black dark:text-white mb-4">Drag and Drop</h4>
+    <button id="select-files" class="btn text-sm">Select Audio Files</button>
+  </div>
+</div> --></code></pre>
+
+<h4 class="text-gray mt-16 pb-2">Transcription Info Area</h4>
+<hr/>
+
+<ul class="list-none mt-8">
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Uploading... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Upload Successful</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Listening... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Listening Complete</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Transcribing... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Transcribing Complete</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Labeling Speakers... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Labeling Complete</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Finishing... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Complete!</li>
+</ul>
+<button class="btn my-8 hidden" id="stepper">Step</button>
+
+<pre><code class="language-html"><!--<ul id="status" class="list-none">
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Uploading... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Upload Successful</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Listening... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Listening Complete</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Transcribing... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Transcribing Complete</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Labeling Speakers... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Labeling Complete</li>
+  <li class="relative leading-none"><span class="text-yellow text-sm">></span> Finishing... <span class="terminal-effect--blink-end"></span></li>
+  <li class="relative leading-none"><span class="text-green text-sm">&#10004;</span> Complete!</li>
+</ul>--></code></pre>
+<dl id="transcript-info" class="border inline-block mt-16 p-4 space-y-2">
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">File Type</dt>
+    <dd id="transcript-filetype" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">file type</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Length</dt>
+    <dd id="transcript-duration" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">2hr 42m 34s</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Status</dt>
+    <dd id="transcript-status" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">Healthy</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">URL</dt>
+    <dd id="transcript-url" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">https://transcriberai.com/</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Language</dt>
+    <dd id="transcript-lang" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">English</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Transcript Name</dt>
+    <dd id="transcript-name" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">City Csdfng for COVID</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Transcript Type</dt>
+    <dd id="transcript-type" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">City Cousdfsdf Meeting</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Words Transcribed</dt>
+    <dd id="transcript-word" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize" id="word-counter">143</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Speakers Discovered</dt>
+    <dd id="transcript-speakers" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize" id="speaker-counter">39</dd>
+  </div>
+</dl>
+
+      <pre><code class="language-html"><!-- <dl id="transcript-info" class="border inline-block mt-16 p-4 space-y-2">
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">File Type</dt>
+    <dd id="transcript-filetype" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">file type</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Length</dt>
+    <dd id="transcript-duration" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">2hr 42m 34s</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Status</dt>
+    <dd id="transcript-status" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">Healthy</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">URL</dt>
+    <dd id="transcript-url" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">https://transcriberai.com/</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Language</dt>
+    <dd id="transcript-lang" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">English</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Transcript Name</dt>
+    <dd id="transcript-name" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">City Csdfng for COVID</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Transcript Type</dt>
+    <dd id="transcript-type" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize">City Cousdfsdf Meeting</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Words Transcribed</dt>
+    <dd id="transcript-word" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize" id="word-counter">143</dd>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <dt class="text-gray font-bold w-64">Speakers Discovered</dt>
+    <dd id="transcript-speakers" class="ml-4 md:ml-0 flex-1 md:whitespace-nowrap randomize" id="speaker-counter">39</dd>
+  </div>
+</dl> --></code></pre>
+
+
+<!-- Accordion -->
+<h4 class="text-gray mt-16 pb-2">Accordion</h4>
+<hr class="mb-2"/>
+<!-- Accordion -->
+<div class="accordion">
+  <div class="accordion-item flex flex-col">
+      <button class="accordion-header self-end flex items-center uppercase font-bold pl-2">
+          Advanced Options
+          <span class="icon px-2">></span>
+      </button>
+      <div class="accordion-content hidden">
+          <div class="flex justify-end items-center gap-8 py-4">
+            <div class="flex justify-center items-center gap-2">
+              <label for="language">
+                Language
+              </label>
+              <select class="border p-2 transition ease-in-out duration-150" id="language">
+                <option value="auto-detect">Auto Detect</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+              </select>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="public" checked>
+              <label for="public">Public</label>
+            </div>
+            
+  
+            <div>
+              <div>
+                <input id="radio-1" type="radio" name="verbatim" value="true-verbatim" checked>
+                <label for="radio-1" class="radio-label">True Verbatim</label>
+              </div>
+            
+              <div>
+                <input id="radio-2" type="radio" name="verbatim" value="clean-verbatim">
+                <label  for="radio-2" class="radio-label">Clean Verbatim</label>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- end Accordion -->
+
+<pre><code class="language-html"><!--<div class="accordion">
+  <div class="accordion-item flex flex-col">
+      <button class="accordion-header self-end flex items-center uppercase font-bold pl-2">
+          Advanced Options
+          <span class="icon px-2">></span>
+      </button>
+      <div class="accordion-content hidden">
+          <div class="flex justify-end items-center gap-8 py-4">
+            <div class="flex justify-center items-center gap-2">
+              <label for="language">
+                Language
+              </label>
+              <select class="border p-2 transition ease-in-out duration-150" id="language">
+                <option value="auto-detect">Auto Detect</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="public" checked>
+              <label for="public">Public</label>
+            </div>
+            <div>
+              <div>
+                <input id="radio-1" type="radio" name="verbatim" value="true-verbatim" checked>
+                <label for="radio-1" class="radio-label">True Verbatim</label>
+              </div>
+              <div>
+                <input id="radio-2" type="radio" name="verbatim" value="clean-verbatim">
+                <label  for="radio-2" class="radio-label">Clean Verbatim</label>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div> --></code></pre>
+<!-- end Accordion -->
+<h4 class="text-gray mt-16 pb-2">Radio Buttons</h4>
+<hr/>
+<div class="mt-4">
+  <input id="radio-checked" name="radio" type="radio" checked>
+  <label for="radio-checked" class="radio-label">Checked</label>
+
+  <input id="radio-unchecked" name="radio" type="radio">
+  <label  for="radio-unchecked" class="radio-label">Unchecked</label>
+
+  <input id="radio-disabled" name="radio" type="radio" disabled>
+  <label for="radio-disabled" class="radio-label">Disabled</label>
+</div>
+
+<pre><code class="language-html"><!--  <input id="radio-checked" name="radio" type="radio" checked>
+  <label for="radio-checked" class="radio-label">Checked</label>
+
+  <input id="radio-unchecked" name="radio" type="radio">
+  <label  for="radio-unchecked" class="radio-label">Unchecked</label>
+
+  <input id="radio-disabled" name="radio" type="radio" disabled>
+  <label for="radio-disabled" class="radio-label">Disabled</label> --></code></pre>
+
+<h4 class="text-gray mt-16 pb-2">Animation</h4>
+<hr/>
+<p>block <span data-spinner="block"></span></p>
+<p>line <span data-spinner="line"></span></p>
+<p>simpleDots <span data-spinner="simpleDots"></span></p>
+<p>bounce <span data-spinner="bounce"></span></p>
+<p>arc <span data-spinner="arc"></span></p>
+<p>circle <span data-spinner="circle"></span></p>
+<p>point <span data-spinner="point"></span></p>
+<p>layer <span data-spinner="layer"></span></p>
+<p>underscore <span data-spinner="underscore"></span></p>
+
+<pre><code class="language-html"><!--<span data-spinner="block"></span>
+<span data-spinner="line"></span>
+<span data-spinner="simpleDots"></span>
+<span data-spinner="bounce"></span>
+<span data-spinner="arc"></span>
+<span data-spinner="circle"></span>
+<span data-spinner="point"></span>
+<span data-spinner="layer"></span>
+<span data-spinner="underscore"></span>--></code></pre>
+
+<h4 class="text-gray mt-16 pb-2">AI Chat</h4>
+<hr/>
+<div class="border border-gray-dark py-4 px-8 h-96">
+  <p>>>> Hey there, I am going to start transcribing your file, but first I need to get the file uploaded to my backend <span data-spinner="line"></span></p>
+  <ul class="ml-4 my-2">
+    <li>* File Type: .mp3</li>
+    <li>* File Name: 20220318_ch19.mp3</li>
+    <li>* File Size: 14.44MB</li>
+  </ul>
+  <p class="text-green py-4">>>> Upload Complete!</p>
+  <p>>>> Alright, I have your file. All looks good. I am going to start transcribing your file using the following options:</p>
+  <ul class="ml-4 my-2">
+    <li>* Language: Auto-Detect</li>
+    <li>* Public: False</li>
+    <li>* Transcript Type: Clean Verbatim</li>
+  </ul>
+  <p class="text-yellow py-4">(NOTE: You can change these options using the ADVANCED OPTIONS above the uploader)</p>
+  <div id="typing-container"></div>
+</div>
+
+<h4 class="text-gray mt-16 pb-2">Button Group</h4>
+<hr class="mb-4"/>
+<div class="my-4 btn-group">
+  <input id="radio-word" value="word" name="file-format" type="radio" checked="">
+  <label for="radio-word" class="btn-group--label">WORD</label>
+  <input id="radio-pdf" value="pdf" name="file-format" type="radio">
+  <label for="radio-pdf" class="btn-group--label">PDF</label>
+  <input id="radio-txt" value="txt" name="file-format" type="radio">
+  <label for="radio-txt" class="btn-group--label">TXT</label>
+  <input id="radio-srt" value="srt" name="file-format" type="radio">
+  <label for="radio-srt" class="btn-group--label">SRT</label>
+</div>
+<pre><code class="language-html"><!--<div class="btn-group">
+  <input id="radio-word" value="word" name="file-format" type="radio" checked="">
+  <label for="radio-word" class="btn-group--label">WORD</label>
+  <input id="radio-pdf" value="pdf" name="file-format" type="radio">
+  <label for="radio-pdf" class="btn-group--label">PDF</label>
+  <input id="radio-txt" value="txt" name="file-format" type="radio">
+  <label for="radio-txt" class="btn-group--label">TXT</label>
+  <input id="radio-srt" value="srt" name="file-format" type="radio">
+  <label for="radio-srt" class="btn-group--label">SRT</label>
+</div> --></code></pre>
+
+<h4 class="text-gray mt-16 pb-2">Switch Toggle</h4>
+<hr class="mb-4"/>
+<div class="flex items-center gap-4 mb-4">
+  <div class="toggle-switch">
+      <label class="switch-label">
+          <input type="checkbox" class="switch" name="milliseconds">
+          <span class="slider"></span>
+      </label>
+  </div>
+  <p>Switch Toggle</p>
+</div>
+<pre><code class="language-html"><!--<div class="flex items-center gap-4">
+  <div class="toggle-switch">
+      <label class="switch-label">
+          <input type="checkbox" class="switch" name="milliseconds">
+          <span class="slider"></span>
+      </label>
+  </div>
+  <p>Switch Toggle</p>
+</div> --></code></pre>
+<h4 class="text-gray mt-16 pb-2">Lists</h4>
+<hr class="mb-4"/>
+<p> use <span class="bg-gray-dark">list-greater</span> and <span class="bg-gray-dark">greater-${color}</span> in HTML classes for caret style lists</p>
+<div class="grid grid-cols-4 my-8">
+  <ul class="list-greater greater-green">
+    <li>Jane Doe</li>
+    <li>John Doe</li>
+    <li>Jess Doe</li>
+    <li>Jim Doe</li>
+  </ul>
+  <ul class="list-greater greater-red">
+    <li>Jane Doe</li>
+    <li>John Doe</li>
+    <li>Jess Doe</li>
+    <li>Jim Doe</li>
+  </ul>
+  <ul class="list-greater greater-yellow">
+    <li>Jane Doe</li>
+    <li>John Doe</li>
+    <li>Jess Doe</li>
+    <li>Jim Doe</li>
+  </ul>
+  <ul class="list-greater greater-blue">
+    <li>Jane Doe</li>
+    <li>John Doe</li>
+    <li>Jess Doe</li>
+    <li>Jim Doe</li>
+  </ul>
+</div>
+<pre><code class="language-html"><!--<ul class="list-greater greater-green">
+  <li>Jane Doe</li>
+  <li>John Doe</li>
+  <li>Jess Doe</li>
+  <li>Jim Doe</li>
+</ul>
+<ul class="list-greater greater-red">
+  <li>Jane Doe</li>
+  <li>John Doe</li>
+  <li>Jess Doe</li>
+  <li>Jim Doe</li>
+</ul>
+<ul class="list-greater greater-yellow">
+  <li>Jane Doe</li>
+  <li>John Doe</li>
+  <li>Jess Doe</li>
+  <li>Jim Doe</li>
+</ul>
+<ul class="list-greater greater-blue">
+  <li>Jane Doe</li>
+  <li>John Doe</li>
+  <li>Jess Doe</li>
+  <li>Jim Doe</li>
+</ul> --></code></pre>
+<h4 class="text-gray mt-16 pb-2">Footer</h4>
+<hr/>
+<pre><code class="language-html"><!--<footer class="mt-auto w-full max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-gray border-t py-8">
+<a href="#">
+  <img height="40px" width="200px" src="./src/assets/img/intellectix.png">
+</a>
+<div class="flex place-items-center gap-8">
+  <a href="#" class="font-serif text-black dark:text-white text-2xl bold">Contact</a>
+  <a href="#" class="font-serif text-black dark:text-white text-2xl bold">Privacy Policy</a>
+</div>
+</footer> --></code></pre>
+
+      
+    </div> <!--  end of main content -->
+  
+    <footer class="mt-auto w-full max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-gray border-t py-8 px-4">
+      <a href="#" class="flex items-center hover:bg-transparent hover:text-black dark:hover:text-white gap-4 font-serif font-bold text-black dark:text-white">
+        <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <title>Transcriber Logo</title>
+          <g id="Transciber-Logo">
+              <path d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z" class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;"/>
+              <g id="Wave">
+                  <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white"/>
+                  <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white"/>
+                  <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white"/>
+                  <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white"/>
+                  <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white"/>
+                  <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white"/>
+                  <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white"/>
+                  <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white"/>
+                  <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white"/>
+                  <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white"/>
+              </g>
+          </g>
+        </svg>
+        <span class="text-3xl font-bold">Transcriber AI</span>
+      </a>
+      <div class="flex place-items-center gap-8">
+        <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Contact</a>
+        <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Privacy Policy</a>
+        <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Terms of Service</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

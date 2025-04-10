@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transcriber AI</title>
+  <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
+  <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+</head>
+
+<body class="m-0 flex flex-col min-w-80 min-h-screen">
+  <header class="flex sm:hidden justify-between p-4">
+    <a class="hover:bg-transparent" href="/portal/">
+      <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <title>Transcriber Logo</title>
+        <g id="Transciber-Logo">
+          <path
+            d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+            class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+          <g id="Wave">
+            <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+            <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+            <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+            <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+            <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+            <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+            <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+            <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+            <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+            <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+          </g>
+        </g>
+      </svg>
+    </a>
+    <button id="toggle-nav" class="border px-4">&#9776;</button>
+    <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+        Overview</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+      <div class="flex justify-between items-center p-4">
+        <p>Dark Mode</p>
+        <div class="darkmode-toggle toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="switch" name="darkmode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <button class="p-4">LOGIN</button>
+    </div>
+  </header>
+  <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
+    <div id="nav" class="flex flex-col sm:flex-row justify-center items-center flex-1 gap-4">
+      <a class="text-black dark:text-white" href="/portal/transcript-overview.html">Transcript
+        Overview</a>
+      <a class="text-black dark:text-white" href="/portal/user-dashboard.html">Dashboard</a>
+      <a class="hover:bg-transparent" href="/portal/">
+        <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+          style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <title>Transcriber Logo</title>
+          <g id="Transciber-Logo">
+            <path
+              d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+              class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+            <g id="Wave">
+              <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+              <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+              <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+              <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+              <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+              <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+              <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+              <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+              <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+              <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+            </g>
+          </g>
+        </svg>
+      </a>
+      <a class="text-black dark:text-white" href="/portal/style-guide.html">Style Guide</a>
+    </div>
+    <div class="flex flex-col sm:flex-row place-items-center gap-4">
+      <div class="darkmode-toggle toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="switch" name="darkmode">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button class="btn">LOGIN</button>
+    </div>
+  </header>
+  <div class="flex-1 max-w-screen-xl w-full flex flex-col mx-auto pt-8 px-4 xl:px-0">
+    <h1>Editor</h1>
+    <div id="player--main" class="flex border border-b-0">
+      <div class="grid">
+        <div class="flex flex-col justify-center items-center p-4 border-b">
+          <span id="player--timer" class="text-4xl">00:00:00</span>
+          <span id="player--total-time" class="text-gray">hh:mm:ss</span>
+        </div>
+        <div class="flex">
+          <button 
+          disabled 
+          id="player--play-pause" 
+          class="px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+            <svg xmlns="http://www.w3.org/2000/svg"
+             id="play-svg"
+             width="24" 
+             height="24" 
+             viewBox="0 0 24 24" 
+             class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+              <path d="M3 22v-20l18 10-18 10z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+             id="pause-svg"
+             width="24" 
+             height="24" 
+             viewBox="0 0 24 24"
+             class="hidden fill-black dark:fill-white group-hover:fill-black group-hover:fill-black dark:group-disabled:fill-gray">
+                <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
+            </svg>
+          </button>
+          <button 
+          disabled 
+          id="player--skip-back" 
+          class="px-4 border-r rotate-180 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+            <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24"
+            height="24" 
+            viewBox="0 0 24 24"
+            class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+              <path d="M12 12l-12 8v-16l12 8zm0-8v16l12-8-12-8z"/>
+            </svg>
+          </button>
+          <div class="flex border-x justify-center items-center gap-2">
+            <label for="player--skip-seconds" class="sr-only">skip seconds</label>
+            <select class="text-center p-2 transition ease-in-out duration-150" id="player--skip-seconds">
+              <option value="2" selected>2s</option>
+              <option value="3">3s</option>
+              <option value="4">4s</option>
+              <option value="5">5s</option>
+              <option value="6">6s</option>
+              <option value="7">7s</option>
+              <option value="8">8s</option>
+              <option value="9">9s</option>
+              <option value="10">10s</option>
+            </select>
+          </div>
+          <button 
+          disabled 
+          id="player--skip-forward" 
+          class="px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+            <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24"
+            class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+              <path d="M12 12l-12 8v-16l12 8zm0-8v16l12-8-12-8z"/>
+            </svg>
+          </button>
+        </div>
+        
+      </div>
+      
+      <div id="waveform" class="border-l flex-1 overflow-x-auto flex justify-center items-center">
+        <div id="waveform--loader" class="w-28">LOADING<span data-spinner="simpleDots"></span></div>
+      </div>
+    </div>
+    <div id="player--extras" class="flex flex-row flex-wrap border border-b-0">
+      <div class="flex border-b border-r p-2 justify-center items-center gap-2">
+        <label for="player--play-rate" class="sr-only">Play Rate</label>
+        <select class="text-center transition ease-in-out duration-150" id="player--play-rate">
+          <option value="1" selected>1x</option>
+          <option value="1.1">1.1x</option>
+          <option value="1.2">1.2x</option>
+          <option value="1.3">1.3x</option>
+          <option value="1.4">1.4x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+      </div>
+      <button id="player--preview" class="px-4 py-2 border-b border-r flex-1 ">Preview</button>
+      <button id="player--reset" class="px-4 py-2 border-b border-r flex-1 ">Reset</button>
+      <button id="player--capitalize" class="px-4 py-2 border-b border-r flex-1 whitespace-nowrap">Auto Capitalize</button>
+      <button id="player--finalize" class="px-4 py-2 border-b border-r flex-1 self-baseline sm:self-auto">Finalize</button>
+      <button id="player--speakers" class="px-4 py-2 border-b border-r flex-1 self-baseline sm:self-auto">Speakers</button>
+      <button id="player--shortcuts" class="px-4 py-2 border-b border-r flex-1 self-baseline sm:self-auto">Shortcuts</button>
+      <form id="player--segments" class="flex-1 btn-group flex-col sm:flex-row border-b">
+        <input id="segment-single" value="single" name="segment-choice" type="radio" checked>
+        <label for="segment-single" class="btn-group--label flex-1 flex justify-center items-center text-center border-none whitespace-nowrap">Individual Segment</label>
+        <input id="segment-auto" value="auto" name="segment-choice" type="radio">
+        <label for="segment-auto" class="btn-group--label flex-1 flex justify-center items-center text-center border-none whitespace-nowrap">Auto-play Segments</label>
+      </form>
+    </div>
+
+    <!-- Individual Segment -->
+    <div class="segment border flex my-8">
+      <div class="segment--controls flex flex-col relative w-56 border-r mb-[-1px]">
+        <!--  speaker -->
+        <button role="button" class="segment--speaker-select flex justify-between items-center p-2 border-b group">
+          <span class="segment--speaker-assigned">Speaker Unassigned...</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24">
+            <path class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+            d="m3.719 15.434 1.952-1.992 6.332 6.573 6.326-6.573 1.952 1.992L12.003 24l-8.284-8.566ZM3.719 8.566l1.952 1.992 6.332-6.573 6.326 6.573 1.952-1.992L12.003 0 3.719 8.566Z"/>
+          </svg>
+        </button>
+        <div class="segment--speaker hidden border flex flex-col max-w-80 absolute bg-white dark:bg-black">
+          <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
+            <input type="text" name="filter-speakers" class="flex-1 border-l px-4 py-2" placeholder="Filter Speakers...">
+            <button
+              class="px-4 py-2 group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                <path 
+                 class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+                 d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
+              </svg>
+            </button>
+          </div>
+          <ul class="segment--speaker-dropdown overflow-auto">
+            <!-- filled by js -->
+          </ul>
+          <div class="segment--speaker-new flex border-t">
+            <input type="text" name="new-speaker" class="flex-1 border-l px-4 py-2" placeholder="New Speaker...">
+          </div>
+          <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
+          <button class="segment--speaker-close border-t py-2 px-4">Close</button>
+        </div>
+        <!-- Segment's time and play/pause -->
+        <div class="flex">
+          <button role="button" aria-label="edit time" class="segment--edit-time-btn text-xl py-2 p-4 flex items-center justify-center flex-1 border-r group">
+            <span>00:00:00</span>
+            <svg
+             width="18"
+             height="18"
+             class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray ml-2" 
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" />
+            </svg>
+          </button>
+         
+          <button 
+            disabled
+            role="button"
+            aria-label="play pause"
+            play-time="34"
+            class="segment--play-pause px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+              <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              class="fill-black play-svg dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+                <path d="M3 22v-20l18 10-18 10z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg"
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24"
+              class="hidden pause-svg fill-black dark:fill-white group-hover:fill-black group-hover:fill-black dark:group-disabled:fill-gray">
+                  <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
+              </svg>
+          </button>
+        </div>
+        <div class="segment--edit-time hidden border-t">
+          <div class="flex justify-center items-center px-4 pt-2">
+            <span class="text-sm text-right w-12">Start:</span> <input type="text" name="start-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+          </div>
+          <div class="flex justify-center items-center px-4 pb-2">
+            <span class="text-sm text-right w-12">End:</span> <input type="text" name="end-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+          </div>
+          <div class="flex items-center border-t">
+            <button type="button" class="segment--edit-time-save text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowed border-r">Save</button>
+            <button type="button" class="segment--edit-time-cancel text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowedr">Cancel</button>
+          </div>
+        </div>
+        <!-- Segment's Merge Buttons -->
+        <div class="flex border-t border-b">
+          <button disabled class="merge-up flex-1 text-sm px-4 py-2 disabled:text-gray disabled:cursor-not-allowed border-r">Merge Up</button>
+          <button disabled class="merge-down flex-1 whitespace-nowrap text-sm px-4 py-2 disabled:text-gray disabled:cursor-not-allowed">Merge Down</button>
+        </div>
+        
+      </div>
+      <div class="segment--text flex-1 py-2 px-4 focus:outline focus:outline-2 focus:outline-blue focus:outline-offset-[-4px]" contenteditable="true">
+        <p>Lorem ipsum dolor sit amet. Aut atque harum et velit porro ad error tempora et veniam suscipit hic possimus architecto sed sequi 
+          soluta ea reiciendis placeat. Cum tempora facilis in fugiat mollitia cum iusto amet quo placeat dolorem id fugit omnis. Id tempora 
+          illum ab officia galisum ab amet architecto sed labore distinctio est velit omnis qui corporis perspiciatis? Vel molestiae magnam 
+          sit Quis quas ex unde quas non quam nobis.</p>
+        <p>Id laborum voluptas aut iure nesciunt et suscipit quia cum galisum veritatis. Et accusamus unde in officia dolorem ad obcaecati
+          galisum non consequuntur placeat. Et molestias quisquam ea suscipit veniam non incidunt mollitia id distinctio veritatis ab quia ullam!</p>
+        <p>Qui accusantium molestiae et culpa architecto et aliquid molestias. Nam dolor eveniet cum tempora quia quo harum necessitatibus ex rerum 
+          eius est iusto quia in rerum necessitatibus? At ipsa voluptas nam perspiciatis maiores sit eligendi possimus. Qui odio temporibus est 
+          galisum minima ad sunt dolor 33 asperiores facere qui tempora libero et aliquam nihil et dolorum harum. </p>
+        <p>Est labore laboriosam ut optio iste rem reiciendis officiis ea velit molestiae et minima nobis. Eum pariatur pariatur At quis neque sed 
+          iure perferendis et ipsum consequatur est nobis iusto? </p>
+        <p>Sed libero deserunt et voluptatibus velit id laboriosam possimus ut sapiente ullam eum eius molestias ut eligendi deleniti. 
+          Et nesciunt voluptas sed repudiandae asperiores et omnis modi et blanditiis temporibus et illo cumque in earum quas? Et dolore 
+          harum et natus consequatur qui placeat placeat sed autem animi. </p>
+      </div>
+    </div>
+
+        <!-- Individual Segment -->
+        <div class="segment border flex my-8">
+          <div class="segment--controls flex flex-col relative w-56 border-r mb-[-1px]">
+            <!--  speaker -->
+            <button role="button" class="segment--speaker-select flex justify-between items-center p-2 border-b group">
+              <span class="segment--speaker-assigned">Speaker Unassigned...</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" viewBox="0 0 24 24">
+                <path class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+                d="m3.719 15.434 1.952-1.992 6.332 6.573 6.326-6.573 1.952 1.992L12.003 24l-8.284-8.566ZM3.719 8.566l1.952 1.992 6.332-6.573 6.326 6.573 1.952-1.992L12.003 0 3.719 8.566Z"/>
+              </svg>
+            </button>
+            <div class="segment--speaker hidden border flex flex-col max-w-80 absolute bg-white dark:bg-black">
+              <div class="segment--speaker-filter flex border-b transition ease-in-out duration-150">
+                <input type="text" name="filter-speakers" class="flex-1 border-l px-4 py-2" placeholder="Filter Speakers...">
+                <button
+                  class="px-4 py-2 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                    <path 
+                     class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white"
+                     d="M1 0h22l-9 14.094v9.906l-4-2v-7.906z"/>
+                  </svg>
+                </button>
+              </div>
+              <ul class="segment--speaker-dropdown overflow-auto">
+                <!-- filled by js -->
+              </ul>
+              <div class="segment--speaker-new flex border-t">
+                <input type="text" name="new-speaker" class="flex-1 border-l px-4 py-2" placeholder="New Speaker...">
+              </div>
+              <button class="segment--speaker-add border-t py-2 px-4">+ Add Speaker</button>
+              <button class="segment--speaker-close border-t py-2 px-4">Close</button>
+            </div>
+            <!-- Segment's time and play/pause -->
+            <div class="flex">
+              <button role="button" aria-label="edit time" class="segment--edit-time-btn text-xl py-2 p-4 flex items-center justify-center flex-1 border-r group">
+                <span>00:00:00</span>
+                <svg
+                 width="18"
+                 height="18"
+                 class="fill-black dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray ml-2" 
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" />
+                </svg>
+              </button>
+             
+              <button 
+                disabled
+                role="button"
+                aria-label="play pause"
+                play-time="55"
+                class="segment--play-pause px-4 disabled:cursor-not-allowed disabled:hover:bg-transparent flex justify-center items-center group"> 
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 24 24" 
+                  class="fill-black play-svg dark:fill-white group-hover:fill-black group-hover:fill-black  dark:group-disabled:fill-gray">
+                    <path d="M3 22v-20l18 10-18 10z"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 24 24"
+                  class="hidden pause-svg fill-black dark:fill-white group-hover:fill-black group-hover:fill-black dark:group-disabled:fill-gray">
+                      <path d="M10.426 21.248H4.13V2.752h6.296v18.496ZM19.87 2.752h-6.296v18.496h6.296V2.752Z"/>
+                  </svg>
+              </button>
+            </div>
+            <div class="segment--edit-time hidden border-t">
+              <div class="flex justify-center items-center px-4 pt-2">
+                <span class="text-sm text-right w-12">Start:</span> <input type="text" name="start-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+              </div>
+              <div class="flex justify-center items-center px-4 pb-2">
+                <span class="text-sm text-right w-12">End:</span> <input type="text" name="end-time" maxlength="8" class="w-24 px-2" value="00:00:00">
+              </div>
+              <div class="flex items-center border-t">
+                <button type="button" class="segment--edit-time-save text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowed border-r">Save</button>
+                <button type="button" class="segment--edit-time-cancel text-sm px-4 py-2 flex-1 disabled:text-gray disabled:cursor-not-allowedr">Cancel</button>
+              </div>
+            </div>
+            <!-- Segment's Merge Buttons -->
+            <div class="flex border-t border-b">
+              <button disabled class="merge-up flex-1 text-sm px-4 py-2 disabled:text-gray disabled:cursor-not-allowed border-r">Merge Up</button>
+              <button disabled class="merge-down flex-1 text-sm whitespace-nowrap px-4 py-2 disabled:text-gray disabled:cursor-not-allowed">Merge Down</button>
+            </div>
+            
+          </div>
+          <div class="segment--text flex-1 py-2 px-4 focus:outline focus:outline-2 focus:outline-blue focus:outline-offset-[-4px]" contenteditable="true">
+            
+          </div>
+        </div>
+ 
+  </div> <!--  end of main content -->
+  <footer
+    class="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-gray border-t py-8 px-4">
+    <a href="#" class="flex items-center hover:bg-transparent hover:text-black dark:hover:text-white gap-4 font-serif font-bold text-black dark:text-white">
+      <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <title>Transcriber Logo</title>
+        <g id="Transciber-Logo">
+          <path
+            d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+            class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+          <g id="Wave">
+            <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+            <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+            <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+            <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+            <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+            <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+            <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+            <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+            <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+            <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+          </g>
+        </g>
+      </svg>
+      <span class="text-3xl font-bold">Transcriber AI</span>
+    </a>
+    <div class="flex place-items-center gap-8">
+      <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Contact</a>
+      <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Privacy Policy</a>
+      <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Terms of Service</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transcriber AI</title>
+    <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
+    <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+  </head>
+  <body class="m-0 flex flex-col min-w-80 min-h-screen">
+    <header class="flex sm:hidden justify-between p-4">
+      <a class="hover:bg-transparent" href="/portal/">
+        <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+          style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <title>Transcriber Logo</title>
+          <g id="Transciber-Logo">
+            <path
+              d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+              class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+            <g id="Wave">
+              <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+              <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+              <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+              <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+              <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+              <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+              <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+              <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+              <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+              <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+            </g>
+          </g>
+        </svg>
+      </a>
+      <button id="toggle-nav" class="border px-4">&#9776;</button>
+      <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+          Overview</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
+        <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+        <div class="flex justify-between items-center p-4">
+          <p>Dark Mode</p>
+          <div class="darkmode-toggle toggle-switch">
+            <label class="switch-label">
+              <input type="checkbox" class="switch" name="darkmode">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        <button class="p-4">LOGIN</button>
+      </div>
+    </header>
+    <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
+      <div id="nav" class="flex justify-center items-center flex-1 gap-4">
+        <a class="text-black dark:text-white " href="/portal/transcript-overview.html">Transcript Overview</a>
+        <a class="text-black dark:text-white" href="/portal/user-dashboard.html">Dashboard</a>
+        <a class="text-black dark:text-white hover:bg-transparent" href="/portal/">
+          <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+            <title>Transcriber Logo</title>
+            <g id="Transciber-Logo">
+                <path d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z" class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;"/>
+                <g id="Wave">
+                    <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white"/>
+                    <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white"/>
+                    <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white"/>
+                    <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white"/>
+                    <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white"/>
+                    <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white"/>
+                    <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white"/>
+                    <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white"/>
+                    <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white"/>
+                    <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white"/>
+                </g>
+            </g>
+          </svg>
+        </a>
+        <a class="text-black dark:text-white" href="/portal/editor.html">Editor</a>
+        <a class="text-black dark:text-white" href="/portal/style-guide.html">Style Guide</a>
+      </div>
+      <div class="flex place-items-center gap-4">
+        <div class="darkmode-toggle toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="switch" name="darkmode">
+            <span class="slider"></span>
+          </label>
+        </div> 
+        <button class="btn">LOGIN</button>
+      </div>
+    </header>
+    <div id="main-content" class="max-w-screen-xl w-full mx-auto pt-8 px-4 xl:px-0">
+      <!-- Accordion -->
+      <div class="accordion">
+        <div class="accordion-item flex flex-col">
+            <button class="accordion-header self-end flex items-center uppercase font-bold pl-2">
+                Advanced Options
+                <span class="icon px-2">></span>
+            </button>
+            <div class="accordion-content hidden">
+                <div class="flex justify-end items-center gap-8 py-4">
+                  <div class="flex justify-center items-center gap-2">
+                    <label for="language">
+                      Language
+                    </label>
+                    <select class="border p-2 transition ease-in-out duration-150" id="language">
+                      <option value="auto-detect">Auto Detect</option>
+                      <option value="english">English</option>
+                      <option value="spanish">Spanish</option>
+                    </select>
+                  </div>
+
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" id="public" checked>
+                    <label for="public">Public</label>
+                  </div>
+                  
+        
+                  <div>
+                    <div>
+                      <input id="radio-1" type="radio" name="verbatim" value="true-verbatim" checked>
+                      <label for="radio-1" class="radio-label">True Verbatim</label>
+                    </div>
+                  
+                    <div>
+                      <input id="radio-2" type="radio" name="verbatim" value="clean-verbatim">
+                      <label  for="radio-2" class="radio-label">Clean Verbatim</label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end Accordion -->
+      <div id="drop_zone" class="w-full flex flex-col justify-center items-center sm:block h-64 md:h-96 border border-dashed border-black dark:border-gray my-8 bg-white dark:bg-black">
+        <div class="flex flex-col justify-center items-center sm:h-4/5">
+          <h4 class="text-3xl text-black dark:text-white mb-4">Drag and Drop</h4>
+          <button id="select-files" class="btn text-sm">Select Audio or Video File</button>
+        </div>
+        <div class="sm:h-1/5 my-4 flex flex-col content-end">
+          <div class="flex items-center gap-2 sm:px-32">
+            <label for="url">
+              URL
+            </label>
+            <input type="url" name="url" id="url" class="border p-2 flex-1" placeholder="https://example.com" pattern="https://.*" required />
+            <button id="uploadFromUrl" class="btn text-sm">Upload</button> 
+          </div>
+        </div>
+      </div>
+
+      <div id="file-info"></div>
+      
+      
+    </div> <!--  end of main content -->
+  
+    
+    <footer class="mt-auto w-full max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-gray border-t py-8 px-4">
+      <a href="#" class="flex items-center hover:bg-transparent hover:text-black dark:hover:text-white gap-4 font-serif font-bold text-black dark:text-white">
+        <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <title>Transcriber Logo</title>
+          <g id="Transciber-Logo">
+              <path d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z" class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;"/>
+              <g id="Wave">
+                  <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white"/>
+                  <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white"/>
+                  <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white"/>
+                  <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white"/>
+                  <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white"/>
+                  <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white"/>
+                  <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white"/>
+                  <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white"/>
+                  <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white"/>
+                  <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white"/>
+              </g>
+          </g>
+        </svg>
+        <span class="text-3xl font-bold">Transcriber AI</span>
+      </a>
+      <div class="flex place-items-center gap-8">
+        <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Contact</a>
+        <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Privacy Policy</a>
+        <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Terms of Service</a>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>

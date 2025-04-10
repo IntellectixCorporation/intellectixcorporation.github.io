@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/portal/assets/transcriber_logo-flavicon-DVcnVPLh.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transcriber AI</title>
+  <script type="module" crossorigin src="/portal/assets/main-BG_-lfPi.js"></script>
+  <link rel="stylesheet" crossorigin href="/portal/assets/main-NK6e5gcP.css">
+</head>
+
+<body class="m-0 flex flex-col min-w-80 min-h-screen">
+  <header class="flex sm:hidden justify-between p-4">
+    <a class="hover:bg-transparent" href="/portal/">
+      <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <title>Transcriber Logo</title>
+        <g id="Transciber-Logo">
+          <path
+            d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+            class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+          <g id="Wave">
+            <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+            <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+            <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+            <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+            <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+            <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+            <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+            <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+            <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+            <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+          </g>
+        </g>
+      </svg>
+    </a>
+    <button id="toggle-nav" class="border px-4">&#9776;</button>
+    <div id="mobile-nav" style="height: calc(100vh - 5rem);" class="hidden absolute top-20 left-0 w-full z-10 bg-white dark:bg-black flex-col divide-y divide-gray-dark">
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/transcript-overview.html">Transcript
+        Overview</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/user-dashboard.html">Dashboard</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/editor.html">Editor</a>
+      <a class="text-black dark:text-white flex-1 flex justify-center items-center" href="/portal/style-guide.html">Style Guide</a>
+      <div class="flex justify-between items-center p-4">
+        <p>Dark Mode</p>
+        <div class="darkmode-toggle toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="switch" name="darkmode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <button class="p-4">LOGIN</button>
+    </div>
+  </header>
+  <header class="w-full max-w-screen-xl mx-auto p-4 hidden sm:flex place-items-center border-b border-gray">
+    <div id="nav" class="flex justify-center items-center flex-1 gap-4">
+      <a class="text-black dark:text-white" href="/portal/transcript-overview.html">Transcript
+        Overview</a>
+      <a class="hover:bg-transparent" href="/portal/">
+        <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+          style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <title>Transcriber Logo</title>
+          <g id="Transciber-Logo">
+            <path
+              d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+              class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+            <g id="Wave">
+              <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+              <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+              <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+              <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+              <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+              <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+              <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+              <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+              <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+              <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+            </g>
+          </g>
+        </svg>
+      </a>
+      <a class="text-black dark:text-white" href="/portal/editor.html">Editor</a>
+      <a class="text-black dark:text-white" href="/portal/style-guide.html">Style Guide</a>
+    </div>
+    <div class="flex place-items-center gap-4">
+      <div class="darkmode-toggle toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="switch" name="darkmode">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <button class="btn">LOGIN</button>
+    </div>
+  </header>
+  <div class="flex-1 max-w-screen-xl w-full flex flex-col mx-auto pt-8 px-4 xl:px-0">
+    <div id="dashboard--search" class="mb-4 flex">
+      <input type="text" name="search" id="search" class="flex-1 border px-4 py-2" placeholder="Search...">
+      <button
+        class="px-4 py-2 border border-l-0 group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path
+            d="M21.172 24l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"
+            class="group-hover:fill-white fill-black dark:group-hover:fill-black dark:fill-white" />
+        </svg> 
+      </button>
+      <a href="/user-dashboard.html" class="px-4 py-2 border dark:border-white border-x-0 text-black dark:text-white hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white font-bold">Clear</a>
+      <button id="dashboard--speakers-btn" class="px-4 py-2 border font-bold">
+        Speakers
+      </button>
+
+
+    </div>
+
+    <div class="flex-1 lg:flex relative mb-4">
+      <div id="dashboard--table-container" class="show-speaker-list self-stretch flex flex-col justify-between">
+        <table id="dashboard--table" class="table-classic mb-4">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Speakers</th>
+              <th>Completed Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-url="">
+              <td>
+                <a href="" class="text-xl">May 4, 2020 - Regular Meeting of City Council</a>
+              </td>
+              <td class="text-center">25</td>
+              <td class="text-center">07/12/2024</td>
+            </tr>
+            <tr data-url="?2">
+              <td>
+                <a href="?2" class="text-xl">May 18, 2020 - Regular Meeting of City Council</a>
+              </td>
+              <td class="text-center">4</td>
+              <td class="text-center">07/10/2024</td>
+            </tr>
+            <tr data-url="?1">
+              <td>
+                <a href="?1" class="text-xl">CW OSI Interview</a>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis culpa reiciendis cupiditate quos iste,
+                  tempore nobis numquam rerum incidunt facilis, magni aspernatur adipisci delectus dolores commodi amet
+                  assumenda exercitationem tempora!</p>
+              </td>
+              <td class="text-center">12</td>
+              <td class="text-center">07/09/2024</td>
+            </tr>
+           
+          </tbody>
+        </table>
+        <div class="flex flex-col lg:flex-row justify-between items-center mb-8 lg:mb-0">
+          <p>Showing 1 to 10 of 97 results</p>
+          <nav class="border border-gray-dark btn-group text-lg">
+            <a href="#" class="btn-group--label border-r border-gray-dark px-2">first</a>
+            <a href="#" class="btn-group--label px-2">1</a>
+            <a href="#" class="btn-group--label px-2 active">2</a>
+            <a href="#" class="btn-group--label px-2">3</a>
+            <a href="#" class="btn-group--label px-2">4</a>
+            <a href="#" class="btn-group--label px-2">...</a>
+            <a href="#" class="btn-group--label px-2">10</a>
+            <a href="#" class="btn-group--label border-l border-gray-dark px-2">next</a>
+            <a href="#" class="btn-group--label border-l border-gray-dark px-2">last</a>
+          </nav>
+        </div>
+      </div>
+
+      <div id="dashboard--speakers-list"
+        class="lg:absolute top-0 bottom-0 right-0 border border-gray-dark lg:w-80 overflow-auto p-4">
+        <h2 class="font-serif font-bold text-xl border-b border-gray-dark pb-2 mb-2">Speakers</h2>
+        <ul class="list-none">
+          <li><a href="#">Ava Thompson</a></li>
+          <li><a href="#">Ethan Martinez</a></li>
+          <li><a href="#">Mia Johnson</a></li>
+          <li><a href="#">Noah Garcia</a></li>
+          <li><a href="#">Sophia Lee</a></li>
+          <li><a href="#">Liam Smith</a></li>
+          <li><a href="#">Isabella Brown</a></li>
+          <li><a href="#">Lucas Taylor</a></li>
+          <li><a href="#">Charlotte Wilson</a></li>
+          <li><a href="#">Mason Anderson</a></li>
+          <li><a href="#">Amelia Clark</a></li>
+          <li><a href="#">Oliver Thomas</a></li>
+          <li><a href="#">Harper Hall</a></li>
+          <li><a href="#">Elijah Wright</a></li>
+          <li><a href="#">Evelyn Lewis</a></li>
+          <li><a href="#">James Young</a></li>
+          <li><a href="#">Grace Hernandez</a></li>
+          <li><a href="#">Benjamin King</a></li>
+          <li><a href="#">Scarlett Allen</a></li>
+          <li><a href="#">Logan Scott</a></li>
+          <li><a href="#">Lily Ramirez</a></li>
+          <li><a href="#">Jackson Turner</a></li>
+          <li><a href="#">Chloe Baker</a></li>
+          <li><a href="#">Aiden Rivera</a></li>
+          <li><a href="#">Ella Phillips</a></li>
+          <li><a href="#">Jacob Campbell</a></li>
+          <li><a href="#">Aria Mitchell</a></li>
+          <li><a href="#">Michael Parker</a></li>
+          <li><a href="#">Scarlett Edwards</a></li>
+          <li><a href="#">Daniel Evans</a></li>
+          <li><a href="#">Zoey Edwards</a></li>
+          <li><a href="#">Samuel Morris</a></li>
+          <li><a href="#">Natalie Murphy</a></li>
+          <li><a href="#">David Cook</a></li>
+          <li><a href="#">Lucy Cooper</a></li>
+          <li><a href="#">Joseph Morgan</a></li>
+          <li><a href="#">Stella Reed</a></li>
+          <li><a href="#">Jackson Rivera</a></li>
+          <li><a href="#">Victoria Bell</a></li>
+          <li><a href="#">Anthony James</a></li>
+          <li><a href="#">Nora Perez</a></li>
+          <li><a href="#">Gabriel Foster</a></li>
+          <li><a href="#">Aurora Hughes</a></li>
+          <li><a href="#">Alexander Wood</a></li>
+          <li><a href="#">Brooklyn Watson</a></li>
+          <li><a href="#">Carter Brooks</a></li>
+          <li><a href="#">Mila Gray</a></li>
+          <li><a href="#">Wyatt Sanders</a></li>
+          <li><a href="#">Leah Price</a></li>
+          <li><a href="#">Nathaniel Hughes</a></li>
+          <li><a href="#">Hannah Bryant</a></li>
+          <li><a href="#">Christopher James</a></li>
+          <li><a href="#">Sophie Simmons</a></li>
+          <li><a href="#">Julian Rivera</a></li>
+          <li><a href="#">Madeline Hayes</a></li>
+          <li><a href="#">Leo Brooks</a></li>
+          <li><a href="#">Claire Rivera</a></li>
+          <li><a href="#">Charles Reed</a></li>
+          <li><a href="#">Ellie Collins</a></li>
+          <li><a href="#">Henry Wood</a></li>
+          <li><a href="#">Zoey Cox</a></li>
+          <li><a href="#">Isaiah Morgan</a></li>
+          <li><a href="#">Anna Murphy</a></li>
+          <li><a href="#">Adrian Martinez</a></li>
+          <li><a href="#">Lily Ramirez</a></li>
+          <li><a href="#">Miles Johnson</a></li>
+          <li><a href="#">Charlotte Sanders</a></li>
+          <li><a href="#">Jaxon Long</a></li>
+          <li><a href="#">Savannah Campbell</a></li>
+          <li><a href="#">Eli Turner</a></li>
+          <li><a href="#">Grace Torres</a></li>
+          <li><a href="#">Oliver Ramirez</a></li>
+          <li><a href="#">Ivy Jenkins</a></li>
+          <li><a href="#">Matthew Murphy</a></li>
+          <li><a href="#">Ruby Peterson</a></li>
+          <li><a href="#">Josiah Cooper</a></li>
+          <li><a href="#">Samantha Parker</a></li>
+          <li><a href="#">Isaac Reed</a></li>
+          <li><a href="#">Amelia Stewart</a></li>
+          <li><a href="#">Adam Torres</a></li>
+          <li><a href="#">Aurora Morgan</a></li>
+          <li><a href="#">Easton Bennett</a></li>
+          <li><a href="#">Layla Nelson</a></li>
+          <li><a href="#">Leo Perry</a></li>
+          <li><a href="#">Eva Bailey</a></li>
+          <li><a href="#">Asher Graham</a></li>
+          <li><a href="#">Penelope Wood</a></li>
+          <li><a href="#">Jason Allen</a></li>
+          <li><a href="#">Maya Butler</a></li>
+          <li><a href="#">Ryan Parker</a></li>
+          <li><a href="#">Scarlett Green</a></li>
+          <li><a href="#">Max Bennett</a></li>
+          <li><a href="#">Clara Price</a></li>
+          <li><a href="#">Gabriel Gray</a></li>
+          <li><a href="#">Julia Fisher</a></li>
+          <li><a href="#">Isaiah Kelly</a></li>
+          <li><a href="#">Mia Torres</a></li>
+          <li><a href="#">Owen King</a></li>
+          <li><a href="#">Sarah Hughes</a></li>
+          <li><a href="#">Colton Wright</a></li>
+      </ul>
+      
+      
+      </div>
+    </div>
+  </div> <!--  end of main content -->
+
+
+  <footer
+    class="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-gray border-t py-8 px-4">
+    <a href="#" class="flex items-center hover:bg-transparent hover:text-black dark:hover:text-white gap-4 font-serif font-bold text-black dark:text-white">
+      <svg width="70px" height="40px" role="image" viewBox="0 0 471 270" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <title>Transcriber Logo</title>
+        <g id="Transciber-Logo">
+          <path
+            d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z"
+            class="stroke-black dark:stroke-white" style="fill:none;stroke-width:8.33px;" />
+          <g id="Wave">
+            <rect x="368.607" y="78.678" width="19.803" height="111.961" class="fill-black dark:fill-white" />
+            <rect x="336.74" y="101.739" width="19.803" height="65.838" class="fill-black dark:fill-white" />
+            <rect x="304.873" y="108.167" width="19.803" height="52.981" class="fill-black dark:fill-white" />
+            <rect x="273.006" y="116.445" width="19.803" height="36.426" class="fill-black dark:fill-white" />
+            <rect x="241.139" y="96.951" width="19.803" height="75.414" class="fill-black dark:fill-white" />
+            <rect x="209.272" y="83.455" width="19.803" height="102.407" class="fill-black dark:fill-white" />
+            <rect x="177.405" y="37.038" width="19.803" height="195.241" class="fill-black dark:fill-white" />
+            <rect x="145.537" y="91.024" width="19.803" height="87.268" class="fill-black dark:fill-white" />
+            <rect x="113.67" y="102.878" width="19.803" height="63.559" class="fill-black dark:fill-white" />
+            <rect x="81.803" y="119.384" width="19.803" height="30.549" class="fill-black dark:fill-white" />
+          </g>
+        </g>
+      </svg>
+      <span class="text-3xl font-bold">Transcriber AI</span>
+    </a>
+    <div class="flex place-items-center gap-8">
+      <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Contact</a>
+      <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Privacy Policy</a>
+      <a href="#" class="font-serif text-black dark:text-white text-2xl font-bold">Terms of Service</a>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>
