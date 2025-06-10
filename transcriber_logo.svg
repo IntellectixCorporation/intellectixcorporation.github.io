@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="471px" height="270px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Outline-Boxed-Logo" serif:id="Outline Boxed Logo">
+        <path d="M235.107,4.167L466.047,69.412L466.047,199.904L235.107,265.149L4.167,199.904L4.167,69.412L235.107,4.167Z" style="fill:none;stroke:#fff;stroke-width:8.33px;"/>
+        <g id="Wave">
+            <rect x="368.607" y="78.678" width="19.803" height="111.961" style="fill:#fff;"/>
+            <rect x="336.74" y="101.739" width="19.803" height="65.838" style="fill:#fff;"/>
+            <rect x="304.873" y="108.167" width="19.803" height="52.981" style="fill:#fff;"/>
+            <rect x="273.006" y="116.445" width="19.803" height="36.426" style="fill:#fff;"/>
+            <rect x="241.139" y="96.951" width="19.803" height="75.414" style="fill:#fff;"/>
+            <rect x="209.272" y="83.455" width="19.803" height="102.407" style="fill:#fff;"/>
+            <rect x="177.405" y="37.038" width="19.803" height="195.241" style="fill:#fff;"/>
+            <rect x="145.537" y="91.024" width="19.803" height="87.268" style="fill:#fff;"/>
+            <rect x="113.67" y="102.878" width="19.803" height="63.559" style="fill:#fff;"/>
+            <rect x="81.803" y="119.384" width="19.803" height="30.549" style="fill:#fff;"/>
+        </g>
+    </g>
+</svg>
